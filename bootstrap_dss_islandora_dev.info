@@ -13,6 +13,8 @@ regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 
+; Testing note
+
 ; Stylesheets
 stylesheets[all][] = css/style.css
 
