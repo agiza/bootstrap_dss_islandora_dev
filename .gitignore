@@ -1,0 +1,9 @@
+
+# Ignoring emacs and vim auto-save files
+*~
+#*#
+
+# Ignoring swap files created by vim
+*.swp
+*.swo
+
