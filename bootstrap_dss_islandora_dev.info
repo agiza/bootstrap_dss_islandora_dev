@@ -3,6 +3,11 @@ description = A Bootstrap Sub-theme.
 core = 7.x
 base theme = bootstrap
 
+; For testing (similar syntax for modules)
+files[] = tests/bootstrap_dss_islandora_dev.test
+; This must be specified for unit testing!
+testing_api = 2.x
+
 ; Regions
 regions[navigation]     = 'Navigation'
 regions[header]         = 'Top Bar'
@@ -12,8 +17,6 @@ regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
-
-; Testing note
 
 ; Stylesheets
 stylesheets[all][] = css/style.css
