@@ -2,7 +2,7 @@
 
 cd tests
 bundle install
-bundle exec evergreen # Execute the Jasmine tests
+bundle exec evergreen run # Execute the Jasmine tests
 
 # Configuration for headless Selenium/Cucumber tests
 # http://about.travis-ci.org/docs/user/gui-and-headless-browsers/
