@@ -5,6 +5,8 @@ require 'capybara/dsl'
 
 # We're running selenium headless
 require 'headless'
+headless = Headless.new
+headless.start
 
 Capybara.default_driver = :selenium
 Capybara.default_wait_time = 45
@@ -17,6 +19,6 @@ World(Capybara)
 at_exit do
 
   exit_status = $!.status if $!.is_a?(SystemExit)
-  headless.destroy
+  headless.destroy if headless
   exit exit_status if exit_status
 end
