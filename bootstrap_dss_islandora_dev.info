@@ -5,6 +5,7 @@ base theme = bootstrap
 
 ; For testing (similar syntax for modules)
 files[] = tests/bootstrap_dss_islandora_dev.test
+
 ; This must be specified for unit testing!
 testing_api = 2.x
 
