@@ -29,5 +29,3 @@ drush test-run "$PROJECT_NAME"
 
 # Prepare the environment for headless Selenium/Cucumber testing...
 #bash env.sh
-
-bundle install
