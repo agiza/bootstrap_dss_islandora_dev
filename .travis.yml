@@ -8,4 +8,5 @@ language: php
 php:
   - 5.5 
 before_install: bash bash.d/drush_test_run.sh # This script executes the Drush Unit tests before executing the functional tests
-script: bundle exec cucumber # Run the Selenium tests using Cucumber
+#script: bundle exec cucumber # Run the Selenium tests using Cucumber
+script: bash bash.d/capybara_run.sh # Run the Selenium tests using Cucumber
