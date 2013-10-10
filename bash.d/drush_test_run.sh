@@ -6,7 +6,7 @@ PROJECT_NAME="bootstrap_dss_islandora_dev"
 # This installs Drush
 cd ../..
 pear channel-discover pear.drush.org
-pear install drush/drush-5.8.0
+pear install drush/drush
 phpenv rehash
 
 # This installs the database fixtures for the Drupal unit tests
