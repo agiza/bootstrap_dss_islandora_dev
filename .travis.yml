@@ -1,8 +1,11 @@
 
 # The Travis CI configuration file
 
-language: ruby
-rvm:
-  - 2.0.0
+#language: ruby
+#rvm:
+#  - 2.0.0
+language: php
+php:
+  - 5.5 
 before_install: bash bash.d/drush_test_run.sh # This script executes the Drush Unit tests before executing the functional tests
 script: bundle exec cucumber # Run the Selenium tests using Cucumber
