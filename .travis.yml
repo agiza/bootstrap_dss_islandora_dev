@@ -4,5 +4,5 @@
 language: ruby
 rvm:
   - 2.0.0
-before_install: bash.d/drush_test_run.sh # This script executes the Drush Unit tests before executing the functional tests
+before_install: bash bash.d/drush_test_run.sh # This script executes the Drush Unit tests before executing the functional tests
 script: bundle exec cucumber # Run the Selenium tests using Cucumber
