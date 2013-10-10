@@ -1,0 +1,3 @@
+[submodule "tests/spec/javascripts/helpers/jquery"]
+	path = tests/spec/javascripts/helpers/jquery
+	url = git@github.com:jquery/jquery.git
