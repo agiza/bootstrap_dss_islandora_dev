@@ -1,14 +1,32 @@
 /**
- * @file Unit testing for our widget
+ * @file Unit testing for the widget
  *
  */
 
-require('/widget.js');
+describe("Example Drupal widget", function() {
 
-describe('Our Drupal widget', function() {
+    var drupal;
 
-        it('can find DOM elements using jQuery', function() {
+    beforeEach(function() {
 
-                expect($('body').length).toEqual(1);
-            });
+	drupal = new Object();
     });
+
+    it("should bind to the DOM", function() {
+
+	expect(true).toBeTruthy();
+    });
+
+    describe("when some DOM state is captured by a jQuery Object", function() {
+
+	beforeEach(function() {
+
+	    $('<div id="element"></div>').appendTo($('body'));
+	});
+
+	it("should indicate that t(he song is currently paused", function() {
+
+	    expect($('div#element').length).toEqual(1);
+	});
+    });
+});
