@@ -12,6 +12,10 @@ require 'headless'
 headless = Headless.new
 headless.start
 
+# For coveralls integration
+require 'coveralls'
+Coveralls.wear!
+
 # Taken from the following location:
 # (http://www.tecnobrat.com/blog/2012/03/24/headless-continuous-integration-with-rspec-capybara-cruisecontrol-rb/)
 at_exit do

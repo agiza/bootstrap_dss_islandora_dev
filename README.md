@@ -5,3 +5,5 @@
 * Also note this theme shall serve as a template for developing sub-themes for Islandora Virtual Research Environments
 
 [![Build Status](https://travis-ci.org/LafayetteCollegeLibraries/islandoraThemeDev.png)](https://travis-ci.org/LafayetteCollegeLibraries/islandoraThemeDev)
+
+[![Coverage Status](https://coveralls.io/repos/LafayetteCollegeLibraries/islandoraThemeDev/badge.png)](https://coveralls.io/r/LafayetteCollegeLibraries/islandoraThemeDev)
