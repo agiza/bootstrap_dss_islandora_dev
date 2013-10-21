@@ -27,6 +27,9 @@
               <?php print render($page['navigation']); ?>
             <?php endif; ?>
           </nav>
+          <nav>
+          	<a>Share</a>
+          </nav>
         </div>
       <?php endif; ?>
     </div>
