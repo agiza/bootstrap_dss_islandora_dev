@@ -6,11 +6,21 @@ base theme = bootstrap
 ; For testing (similar syntax for modules)
 files[] = tests/bootstrap_dss_islandora_dev.test
 
+scripts[] = 'js/bootstrap_helper.js'
+
 ; This must be specified for unit testing!
 testing_api = 2.x
 
 ; Regions
 regions[navigation]     = 'Navigation'
+
+; Refactor?
+regions[search_modal]     = 'Advanced Search Modal'
+; For offering Shibboleth, OAuth2...
+regions[auth]	  = 'Authentication'
+; For sharing content over Facebook, Twitter, Google...
+regions[share]	  = 'Content Sharing'
+
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
@@ -18,6 +28,7 @@ regions[content]        = 'Content'
 regions[sidebar_first]  = 'Primary'
 regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
+regions[hidden]         = 'Hidden'
 
 ; Stylesheets
 stylesheets[all][] = css/style.css

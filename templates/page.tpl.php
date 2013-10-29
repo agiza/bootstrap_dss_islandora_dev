@@ -1,12 +1,24 @@
 <header id="navbar" role="banner" class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
 
-      <?php if (!empty($logo)): ?>
-        <a class="logo pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-      <?php endif; ?>
+  <div class="navbar-header">
+
+   <h2><?php print empty($site_name) ? 'Digital Collections at Lafayette College' : $site_name ?></h2>
+   <?php if(!empty($title)): ?>
+    <h1><?php print $title; ?></h1>
+   <?php endif; ?>
+  </div>
+
+  <div class="navbar-inner">
+
+    <div class="logo-container logo pull-left">
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <h2 class="dss-logo">DSS</h2>
+      </a>
+
+    <?php print $contact_us; ?>
+    </div>
+
+    <div class="container">
 
       <?php if (!empty($site_name)): ?>
         <h1 id="site-name">
@@ -20,20 +32,47 @@
             <?php if (!empty($primary_nav)): ?>
               <?php print render($primary_nav); ?>
             <?php endif; ?>
+
             <?php if (!empty($secondary_nav)): ?>
               <?php print render($secondary_nav); ?>
             <?php endif; ?>
+
             <?php if (!empty($page['navigation'])): ?>
               <?php print render($page['navigation']); ?>
             <?php endif; ?>
-          </nav>
-          <nav>
-          	<a>Share</a>
+
+<div class="auth-share-container container">
+	    <div class="auth-container modal-container container">
+
+	      <?php if (!empty($page['auth'])): ?>
+
+  <div id="auth-control-container" class="modal-control-container container">
+
+    <div class="auth-icon"><i class="icon-large icon-user"></i></div>
+    <a data-toggle="modal" href="#auth-modal">Log In</a>
+  </div>
+	      <?php endif; ?>
+	    </div><!-- /.auth-container -->
+
+	    <div class="share-container modal-container container">
+
+	      <?php if (!empty($page['share'])): ?>
+
+  <div id="share-control-container" class="modal-control-container container">
+
+    <div class="share-icon"><i class="icon-large icon-share"></i></div>
+    <a data-toggle="modal" href="#share-modal">Share</a>
+  </div>
+	      <?php endif; ?>
+	    </div><!-- /.share-container -->
+</div>
+
           </nav>
         </div>
       <?php endif; ?>
     </div>
   </div>
+
 </header>
 
 <div class="main-container container">
@@ -61,9 +100,7 @@
       <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
-        <h1 class="page-header"><?php print $title; ?></h1>
-      <?php endif; ?>
+
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
       <?php if (!empty($tabs)): ?>
@@ -86,6 +123,35 @@
 
   </div>
 </div>
+
+<!--
+
+  griffinj@lafayette.edu
+  For storing content to be rendered in modal widgets
+  -->
+<div class="hidden container">
+  <?php print render($page['hidden']); ?>
+</div>
+
+<div class="search-modal container">
+  <?php if (!empty($page['search_modal'])): ?>
+    <?php print render($page['search_modal']); ?>
+  <?php endif; ?>
+</div>
+
+<div class="auth-modal container">
+  <?php if (!empty($page['auth'])): ?>
+    <?php print render($page['auth']); ?>
+  <?php endif; ?>
+</div>
+
+<div class="share-modal container">
+  <?php if (!empty($page['share'])): ?>
+    <?php print render($page['share']); ?>
+  <?php endif; ?>
+</div>
+
 <footer class="footer container">
   <?php print render($page['footer']); ?>
 </footer>
+
