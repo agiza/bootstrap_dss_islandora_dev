@@ -33,12 +33,27 @@
  /* MODAL CLASS DEFINITION
   * ====================== */
 
+  /*
   var Modal = function (element, options) {
     this.options = options
     this.$element = $(element)
       .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
     this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
   }
+  */
+
+  /**
+   * The Lafayette College DSS Modal class
+   *
+   */
+  var LafayetteDssModal = function() {
+
+      Modal.call(this);
+  }
+
+  // Set the Modal as the parent class
+  LafayetteDssModal.prototype = new Modal();
+  LafayetteDssModal.prototype.constructor = LafayetteDssModal;
 
   Modal.prototype = {
 
@@ -236,7 +251,24 @@
  /* MODAL DATA-API
   * ============== */
 
+  /*
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
+    var $this = $(this)
+      , href = $this.attr('href')
+      , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
+      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
+
+    e.preventDefault()
+
+    $target
+      .modal(option)
+      .one('hide', function () {
+        $this.focus()
+      })
+  })
+  */
+
+  $(document).on('click.modal.data-api', '[data-toggle="dss-modal"]', function (e) {
     var $this = $(this)
       , href = $this.attr('href')
       , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
