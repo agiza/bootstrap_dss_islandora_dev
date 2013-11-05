@@ -1,0 +1,52 @@
+/**
+   @file
+   * Theming specific to the modals
+   *
+   */
+   
+div#advanced-search-modal.shown {
+
+    position: fixed;
+    top: 152px;
+    right: 12px;
+}
+
+div#auth-modal.shown {
+
+    position: fixed;
+    top: 164px;
+    right: 0px;
+}
+
+div#share-modal.shown {
+
+    position: fixed;
+    top: 164px;
+    right: 0px;
+}
+
+/**
+ * Styling rules specific to the advanced search modal
+ *
+ */
+
+.lafayette-dss-modal {
+
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    /*
+      left: 50%;
+      margin-left: -280px;
+      */
+    outline: medium none;
+    /*
+      position: fixed;
+      top: 10%;
+      */
+    width: 560px;
+    z-index: 1050;
+    display: none;
+}

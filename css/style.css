@@ -3,58 +3,6 @@
  * remove this comment and start adding your styles to this file.
  */
 
-/* griffinj */
-
-section#block-islandora-solr-simple {
-
-    /* float: right; */
-    float: left;
-    width: 22%;
-}
-
-section#block-islandora-solr-simple form#islandora-solr-simple-search-form {
-
-    margin-bottom: 0px;
-}
-
-form#islandora-solr-simple-search-form div div#edit-simple.container-inline div.control-group {
-
-    /* float: right; */
-    display: inline;
-    /* margin-top: 5px; */
-}
-
-section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div {
-
-    /* margin-top: 5px; */
-}
-
-input#edit-islandora-simple-search-query.form-text {
-
-    margin-top: 5px;
-}
-
-form#islandora-solr-simple-search-form div div#edit-simple.container-inline div.control-group div.controls {
-
-    display: inline;
-}
-
-#edit-islandora-simple-search-query {
-
-
-}
-
-form#islandora-solr-simple-search-form div div#edit-simple.container-inline button#edit-submit.btn {
-
-    float: right;
-}
-
-section#block-islandora-solr-advanced.block form#islandora-solr-advanced-search-form div div#islandora-advanced-search-inner-wrapper div.islandora-solr-advanced-controls {
-    
-    text-align: center;
-    width: 35%;
-}
-
 .navbar .logo {
 
     margin-top: 0.1%;
@@ -86,12 +34,6 @@ div.navbar-header h2 {
 
     margin-right: 50%;
     font-size: x-large;
-}
-
-div#advanced-search-modal {
-
-    /* width: 62% */
-    width: 54%
 }
 
 /* Remove the backdrop */
@@ -127,3 +69,4 @@ div.modal-container.container {
 
     border: 2px solid;
 }
+

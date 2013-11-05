@@ -29,31 +29,17 @@
 
   "use strict"; // jshint ;_;
 
-
  /* MODAL CLASS DEFINITION
   * ====================== */
 
-  /*
   var Modal = function (element, options) {
+
     this.options = options
     this.$element = $(element)
       .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-    this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+
+    if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
   }
-  */
-
-  /**
-   * The Lafayette College DSS Modal class
-   *
-   */
-  var LafayetteDssModal = function() {
-
-      Modal.call(this);
-  }
-
-  // Set the Modal as the parent class
-  LafayetteDssModal.prototype = new Modal();
-  LafayetteDssModal.prototype.constructor = LafayetteDssModal;
 
   Modal.prototype = {
 
@@ -213,9 +199,8 @@
       }
   }
 
-
- /* MODAL PLUGIN DEFINITION
-  * ======================= */
+  /* MODAL PLUGIN DEFINITION
+   * ======================= */
 
   var old = $.fn.modal
 
@@ -238,7 +223,6 @@
 
   $.fn.modal.Constructor = Modal
 
-
  /* MODAL NO CONFLICT
   * ================= */
 
@@ -247,11 +231,9 @@
     return this
   }
 
-
  /* MODAL DATA-API
   * ============== */
 
-  /*
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
       , href = $this.attr('href')
@@ -265,22 +247,287 @@
       .one('hide', function () {
         $this.focus()
       })
-  })
-  */
+  });
 
-  $(document).on('click.modal.data-api', '[data-toggle="dss-modal"]', function (e) {
-    var $this = $(this)
-      , href = $this.attr('href')
-      , $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
-      , option = $target.data('modal') ? 'toggle' : $.extend({ remote:!/#/.test(href) && href }, $target.data(), $this.data())
+  /**
+   * The Lafayette College DSS Modal class
+   *
+   * Object instantiator
+   *
+   */
+  var LafayetteDssModal = function(element, options) {
 
-    e.preventDefault()
+      this.options = options;
 
-    $target
-      .modal(option)
-      .one('hide', function () {
-        $this.focus()
-      })
-  })
+      this.$element = $(element)
+      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
+
+      if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote);
+  };
+
+  /**
+   * Modal Object
+   *
+   */
+  LafayetteDssModal.prototype = {
+
+      constructor: LafayetteDssModal,
+      toggle: Modal.prototype.toggle,
+      
+      /**
+       * Overriding the show method
+       * @see Modal.show()
+       *
+       */
+      show: function() {
+
+	  var that = this;
+	  var e = $.Event('show');
+
+	  this.$element.trigger(e);
+
+	  if (this.isShown || e.isDefaultPrevented()) return;
+
+	  this.isShown = true;
+	  
+	  this.escape();
+
+	  var transition = $.support.transition && that.$element.hasClass('fade');
+
+	  if(!that.$element.parent().length) {
+
+	      that.$element.appendTo(document.body); //don't move modals dom position
+	  }
+
+	  //that.$element.show();
+
+	  /**
+	   * Add the non-Bootstrap transition
+	   *
+	   */
+
+	  //that.$element.hide();
+
+	  /*
+	    that.$element
+	    .addClass('in')
+	    .attr('aria-hidden', false);
+	  */
+
+	  that.$element.attr('aria-hidden', false);
+
+	  /** ENABLE ME
+
+	  that.$element.show('scale', function() {
+
+		  setTimeout(function() {
+
+			  //$( "#effect:visible" ).removeAttr( "style" ).fadeOut();
+			  //that.$element.fadeOut();
+			  that.hide();
+		      }, 3000);
+	      });
+	  */
+	  that.$element.show('scale');
+	  that.$element.addClass('shown');
+
+	  if(transition) {
+
+	      that.$element[0].offsetWidth; // force reflow
+	  }
+
+	  //that.$element.attr('aria-hidden', false).show('scale');
+
+	  /*
+	    that.$element
+	    .css('top', '20%')
+	    .show('scale');
+	  */
+
+	  that.enforceFocus();
+
+	  transition ?
+	  that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
+	  that.$element.focus().trigger('shown');
+
+	  /*
+	  this.backdrop(function() {
+
+		  var transition = $.support.transition && that.$element.hasClass('fade');
+
+		  if(!that.$element.parent().length) {
+
+		      that.$element.appendTo(document.body); //don't move modals dom position
+		  }
+
+		  that.$element.show();
+
+		  if (transition) {
+
+		      that.$element[0].offsetWidth; // force reflow
+		  }
+
+		  /**
+		   * Add the non-Bootstrap transition
+		   *
+		   */
+
+		  //that.$element.hide();
+
+		  /*
+		  that.$element
+		      .addClass('in')
+		      .attr('aria-hidden', false);
+		  * /
+
+		  that.$element.attr('aria-hidden', false);
+		  that.$element.show('scale');
+
+		  //that.$element.attr('aria-hidden', false).show('scale');
+
+		  /*
+		  that.$element
+		      .css('top', '20%')
+		      .show('scale');
+		  * /
+
+		  that.enforceFocus();
+
+		  transition ?
+		      that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
+		      that.$element.focus().trigger('shown');
+	      });
+
+		  */
+      },
+
+      /**
+       * Overriding the hide method
+       * @see Modal.hide()
+       */
+      hide: function(e) {
+
+	  e && e.preventDefault();
+
+	  var that = this;
+
+	  e = $.Event('hide');
+
+	  this.$element.trigger(e);
+
+	  if (!this.isShown || e.isDefaultPrevented()) return;
+
+	  this.isShown = false;
+
+	  this.escape();
+
+	  $(document).off('focusin.modal');
+
+	  this.$element
+          .removeClass('in')
+          .attr('aria-hidden', true);
+
+	  $.support.transition && this.$element.hasClass('fade') ?
+          this.hideWithTransition() :
+          this.hideModal();
+      },
+
+      enforceFocus: Modal.prototype.enforceFocus,
+      escape: Modal.prototype.escape,
+
+      /**
+       * Overriding the hideWithTransition method
+       * @see Modal.hideWithTransition()
+       *
+       */
+      hideWithTransition: function() {
+
+	  var that = this;
+	  var timeout = setTimeout(function () {
+
+		  that.$element.off($.support.transition.end)
+		  that.hideModal()
+	      }, 500);
+
+	  this.$element.one($.support.transition.end, function() {
+
+		  clearTimeout(timeout);
+		  that.hideModal();
+	      });
+      },
+
+      hideModal: Modal.prototype.hideModal,
+      removeBackdrop: Modal.prototype.removeBackdrop,
+      backdrop: Modal.prototype.backdrop,
+  };
+
+  // MODAL PLUGIN DEFINITION
+  // =======================
+
+  var old = $.fn.lafayetteDssModal;
+
+  $.fn.lafayetteDssModal = function(option, _relatedTarget) {
+
+      return this.each(function() {
+
+	      var $this   = $(this);
+	      var data    = $this.data('bs.modal');
+	      var options = $.extend({}, $.fn.lafayetteDssModal.defaults, $this.data(), typeof option == 'object' && option);
+
+	      if (!data) $this.data('bs.modal', (data = new LafayetteDssModal(this, options)));
+
+	      console.log(option);
+
+	      if (typeof option == 'string') {
+
+		  data[option](_relatedTarget);
+	      } else if (options.show) {
+
+		  data.show(_relatedTarget);
+	      }
+	  });
+  };
+
+  /**
+   * Default values for the plug-in
+   *
+   */
+  $.fn.lafayetteDssModal.defaults = {
+
+      backdrop: true,
+      keyboard: true,
+      show: true
+  };
+
+  $.fn.lafayetteDssModal.Constructor = LafayetteDssModal;
+
+  // MODAL NO CONFLICT
+  // =================
+
+  $.fn.lafayetteDssModal.noConflict = function() {
+
+      $.fn.lafayetteDssModal = old;
+      return this;
+  };
+
+  // MODAL DATA-API
+  // ==============
+
+  $(document).on('click.bs.modal.data-api', '[data-toggle="lafayette-dss-modal"]', function(e) {
+
+	  var $this   = $(this);
+	  var href    = $this.attr('href');
+	  var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
+	  var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
+
+	  e.preventDefault();
+
+	  $target
+	      .lafayetteDssModal(option, this)
+	      .one('hide', function() {
+
+		      $this.is(':visible') && $this.focus();
+		  });
+      });
 
 }(window.jQuery);

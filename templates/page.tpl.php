@@ -49,7 +49,7 @@
   <div id="auth-control-container" class="modal-control-container container">
 
     <div class="auth-icon"><i class="icon-large icon-user"></i></div>
-    <a data-toggle="modal" href="#auth-modal">Log In</a>
+    <a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a>
   </div>
 	      <?php endif; ?>
 	    </div><!-- /.auth-container -->
@@ -61,7 +61,7 @@
   <div id="share-control-container" class="modal-control-container container">
 
     <div class="share-icon"><i class="icon-large icon-share"></i></div>
-    <a data-toggle="modal" href="#share-modal">Share</a>
+    <a data-toggle="lafayette-dss-modal" href="#share-modal">Share</a>
   </div>
 	      <?php endif; ?>
 	    </div><!-- /.share-container -->
