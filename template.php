@@ -11,6 +11,8 @@
   // Includes functions to create Islandora Solr blocks.
 require_once dirname(__FILE__) . '/includes/blocks.inc';
 
+require_once dirname(__FILE__) . '/includes/menu.inc';
+
   /**
    * @author griffinj
    * Implements hook_theme()
