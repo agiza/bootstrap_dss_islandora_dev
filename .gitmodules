@@ -1,3 +1,6 @@
 [submodule "tests/spec/javascripts/helpers/jquery"]
 	path = tests/spec/javascripts/helpers/jquery
 	url = https://github.com/jquery/jquery.git
+[submodule "dss-drupal-theme-doc"]
+	path = dss-drupal-theme-doc
+	url = ./dss-drupal-theme-doc
