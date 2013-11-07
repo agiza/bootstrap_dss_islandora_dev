@@ -52,10 +52,15 @@ function bootstrap_dss_islandora_dev_menu_link(&$variables) {
    $element['#attributes']['class'][] = 'active';
  }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
-  //  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
 
-  $element['#attributes']['class'][] = 'btn';
-  return '<li ' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
+  // Ensure that buttons are only created for the top-level list
+  // This must be menu specific!
+  if($element['#below'] || empty($element['#original_link']['depth']) || $element['#original_link']['depth'] == 1) {
+
+    $element['#attributes']['class'][] = 'btn';
+  }
+
+  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
   }
 
   /*

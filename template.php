@@ -53,6 +53,7 @@ function bootstrap_dss_islandora_dev_form_alter(&$form, $form_state, $form_id) {
 
     // Insert the glyphicon for searching
     $form['simple']['submit']['#value'] = '<i class="icon-large icon-search"></i>';
+    //$form['simple']['submit']['#class'][] = 'icon-search';
 
     /*
     $form['simple']['#suffix'] = l('Advanced Search', '/', array('attributes' => array('data-toggle' => 'modal'),

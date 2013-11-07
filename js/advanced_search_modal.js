@@ -252,7 +252,7 @@
   /**
    * The Lafayette College DSS Modal class
    *
-   * Object instantiator
+   * Object constructor
    *
    */
   var LafayetteDssModal = function(element, options) {
@@ -260,7 +260,7 @@
       this.options = options;
 
       this.$element = $(element)
-      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
+      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this));
 
       if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote);
   };
@@ -316,21 +316,44 @@
 
 	  that.$element.attr('aria-hidden', false);
 
-	  /** ENABLE ME
-
+	  /**
+	   * Integrate with jQuery UI
+	   *
+	   */
 	  that.$element.show('scale', function() {
 
+		  // Ensure that the modal is hidden after 3 seconds
 		  setTimeout(function() {
 
 			  //$( "#effect:visible" ).removeAttr( "style" ).fadeOut();
 			  //that.$element.fadeOut();
 			  that.hide();
 		      }, 3000);
-	      });
-	  */
-	  that.$element.show('scale');
-	  that.$element.addClass('shown');
 
+		  $(this).find('input.form-text:first').focus();
+
+		  // Hide when losing focus
+
+		  $(this).focusout(function(e) {
+
+			  console.log('trace');
+
+			  console.log( $(e.target).parents('#' + $(this).attr('id')));
+
+			  /*
+			  if(!$(e.target).is($(this)) && $(e.target).parents('#' + $(this).attr('id') ).empty()) {
+
+			      that.hide();
+			  } else {
+
+			      console.log($(e.target));
+			      console.log($(this));
+			  }
+			  */
+		      });
+	      });
+
+	  that.$element.addClass('shown');
 	  if(transition) {
 
 	      that.$element[0].offsetWidth; // force reflow
@@ -422,6 +445,10 @@
 	  this.escape();
 
 	  $(document).off('focusin.modal');
+
+	  // Work-around for losing focus
+	  //this.$element.off('focusout');
+	  $(document).off('focusout.modal');
 
 	  this.$element
           .removeClass('in')
