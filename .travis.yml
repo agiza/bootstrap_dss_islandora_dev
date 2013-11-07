@@ -1,6 +1,12 @@
 
 # The Travis CI configuration file
 
+except:
+  - griffinj
+  - volatile
+  - buttoned
+  - unbuttoned
+
 #language: ruby
 #rvm:
 #  - 2.0.0
