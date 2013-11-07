@@ -44,14 +44,21 @@
 <div class="auth-share-container container">
 	    <div class="auth-container modal-container container">
 
-	      <?php if (!empty($page['auth'])): ?>
-
   <div id="auth-control-container" class="modal-control-container container">
 
     <div class="auth-icon"><i class="icon-large icon-user"></i></div>
-    <a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a>
+
+   <!-- Work-around, decouple -->
+   <?php if (!empty($page['auth'])): ?>
+
+     <a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a>
+   <?php elseif (user_is_logged_in()): ?>
+
+     <!-- Work-around, integrate with the  -->
+     <?php print l(t('Log Out'), 'user/login'); ?>
+   <?php endif; ?>
   </div>
-	      <?php endif; ?>
+
 	    </div><!-- /.auth-container -->
 
 	    <div class="share-container modal-container container">
@@ -148,6 +155,12 @@
 <div class="share-modal container">
   <?php if (!empty($page['share'])): ?>
     <?php print render($page['share']); ?>
+  <?php endif; ?>
+</div>
+
+<div class="contact-modal container">
+  <?php if (!empty($page['contact'])): ?>
+    <?php print render($page['contact']); ?>
   <?php endif; ?>
 </div>
 

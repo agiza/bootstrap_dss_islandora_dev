@@ -15,12 +15,15 @@ testing_api = 2.x
 ; Regions
 regions[navigation]     = 'Navigation'
 
+; For the advanced search modeless dialog (implements the Bootstrap "modal" feature)
 ; Refactor?
 regions[search_modal]     = 'Advanced Search Modal'
 ; For offering Shibboleth, OAuth2...
 regions[auth]	  = 'Authentication'
 ; For sharing content over Facebook, Twitter, Google...
 regions[share]	  = 'Content Sharing'
+; For the contact form modal
+regions[contact]  = 'Contact Interface'
 
 regions[header]         = 'Top Bar'
 regions[highlighted]    = 'Highlighted'

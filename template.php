@@ -95,6 +95,17 @@ function bootstrap_dss_islandora_dev_preprocess_bootstrap_dss_islandora_dev_isla
 }
 
 /**
+ * Preprocess variables for region--auth.tpl.php
+ *
+ * @see region--auth.tpl.php
+ */
+function bootstrap_dss_islandora_dev_preprocess_region__auth(&$variables) {
+
+  dpm('trace3');
+  dpm($variables);
+}
+
+/**
  * Preprocess variables for page.tpl.php
  *
  * @see page.tpl.php
@@ -136,6 +147,7 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
   }
 
   // The "Contact Us" link
-  $variables['contact_us'] = l('Contact Us', 'contact');
+  //$variables['contact_us'] = l('Contact Us', 'contact');
+  $variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" href="#contact-modal">' . t('Contact Us') . '</a>';
 
 }

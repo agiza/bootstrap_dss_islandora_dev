@@ -25,6 +25,13 @@ div#share-modal.shown {
     right: 0px;
 }
 
+div#contact-modal.shown {
+
+    position: fixed;
+    top: 164px;
+    left: 0px;
+}
+
 /**
  * Styling rules specific to the advanced search modal
  *
