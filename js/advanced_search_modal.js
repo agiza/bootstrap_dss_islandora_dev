@@ -259,8 +259,20 @@
 
       this.options = options;
 
+      // Work-around
+      // Refactor
+      //this.holdsFocus = false;
+
       this.$element = $(element)
       .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this));
+
+      // Work-around
+      // Refactor
+
+      $(document).mousedown(function(e) {
+
+	      $(document).data('LafayetteDssModal', {$lastTarget: $(e.target)});
+	  });
 
       if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote);
   };
@@ -322,35 +334,119 @@
 	   */
 	  that.$element.show('scale', function() {
 
+		  $._data($(this)[0], 'events');
+
 		  // Ensure that the modal is hidden after 3 seconds
+		  /*
 		  setTimeout(function() {
 
 			  //$( "#effect:visible" ).removeAttr( "style" ).fadeOut();
 			  //that.$element.fadeOut();
 			  that.hide();
 		      }, 3000);
+		  */
 
 		  $(this).find('input.form-text:first').focus();
 
 		  // Hide when losing focus
+		  //$(this).focusout(function(e) {
 
-		  $(this).focusout(function(e) {
+		  /**
+		   * Work-around
+		   * This can only be set after the "hide" method has been explicitly inherited from the Twitter Modal Object
+		   * Attempting to implement this within the constructor raises an error, as hide(e) has not yet been appended
+		   * @todo Refactor
+		   *
+		   */
+		  $(this)
+		      .focusin(function(e) {
 
+			      $(document).data('LafayetteDssModal.focusedModal', that);
+			  })
+		      .off('focusout')
+		      .focusout(function(e) {
+
+			      $(document).data('LafayetteDssModal.focusedModal', null);
+
+			  //e.preventDefault();
+
+			  /*
 			  console.log('trace');
 
 			  console.log( $(e.target).parents('#' + $(this).attr('id')));
+			  console.log($(e.target).is($(this)));
 
-			  /*
-			  if(!$(e.target).is($(this)) && $(e.target).parents('#' + $(this).attr('id') ).empty()) {
-
-			      that.hide();
-			  } else {
-
-			      console.log($(e.target));
-			      console.log($(this));
-			  }
+			  console.log($(e.target));
 			  */
-		      });
+
+			      /*
+			      console.log(e);
+			      console.log($(e.target));
+			      console.log($(e.target).parents('#' + $(this).attr('id') ).length);
+			      */
+
+			      /*
+			      console.log(window.lastElementClicked);
+			      var $clickedElem = $(window.lastElementClicked);
+			      */
+
+			      /*
+			      console.log($(':focus'));
+			      console.log($(':focus').parents('#' + $(this).attr('id') ).length);
+			      */
+
+			      /*
+			      console.log($clickedElem);
+			      console.log($clickedElem.parents('#' + $(this).attr('id') ).length);
+			      */
+
+			      /*
+			      //if(!$(e.target).is($(this)) && !$(e.target).parents('#' + $(this).attr('id')).length ) {
+			      if(!$(':focus').is($(this)) && !$(e.target).parents('#' + $(this).attr('id')).length) {
+
+				  console.log('trace');
+				  //that.hide();
+
+				  // Ensure that the modal is hidden after 3 seconds
+				  setTimeout(function() {
+					  
+					  if( !$(':focus').is($(this)) && !$(e.target).parents('#' + $(this).attr('id')).length) {
+
+					      //that.hide();
+					      console.log('trace');
+					  }
+				      }, 3000);
+			      }
+			      */
+			      /*
+				} else {
+				
+				console.log($(e.target));
+				console.log($(this));
+				}
+			      */
+
+			      console.log($(document).data('LafayetteDssModal').$lastTarget);
+			      
+			      // Ensure that the modal is hidden after 3 seconds
+			      setTimeout(function() {
+
+				      var focusedModal = $(document).data('LafayetteDssModal.focusedModal');
+
+				      if(focusedModal) {
+
+					  // Ensure that the last element clicked does not lie within a modal...
+					  if(!$(document).data('LafayetteDssModal').$lastTarget.is($(this)) &&
+					     !$(document).data('LafayetteDssModal').$lastTarget.parents('#' + focusedModal.$element.attr('id')).length ) {
+					      
+					      that.hide();
+					  }
+				      } else {
+
+					  that.hide();
+				      }
+				  }, 3000);
+			  });
 	      });
 
 	  that.$element.addClass('shown');
@@ -447,16 +543,23 @@
 	  $(document).off('focusin.modal');
 
 	  // Work-around for losing focus
-	  //this.$element.off('focusout');
-	  $(document).off('focusout.modal');
+	  this.$element.off('focusout');
+
+	  /**
+	   * Updating the Document state
+	   * @todo Refactor for race conditions
+	   *
+	   */
+	  if($(document).data('LafayetteDssModal.focusedModal') == that) {
+
+	      $(document).data('LafayetteDssModal.focusedModal', null);
+	  }
 
 	  this.$element
           .removeClass('in')
           .attr('aria-hidden', true);
 
-	  $.support.transition && this.$element.hasClass('fade') ?
-          this.hideWithTransition() :
-          this.hideModal();
+	  $.support.transition && this.$element.hasClass('fade') ? this.hideWithTransition() : this.hideModal();
       },
 
       enforceFocus: Modal.prototype.enforceFocus,
@@ -483,7 +586,26 @@
 	      });
       },
 
-      hideModal: Modal.prototype.hideModal,
+      //hideModal: Modal.prototype.hideModal,
+
+      /**
+       * Overriding the hideWithTransition method
+       * @see Modal.hideModal()
+       *
+       */
+      hideModal: function() {
+
+	  var that = this;
+
+	  this.$element.hide('scale');
+
+	  this.backdrop(function () {
+
+		  that.removeBackdrop();
+		  that.$element.trigger('hidden');
+	      });
+      },
+
       removeBackdrop: Modal.prototype.removeBackdrop,
       backdrop: Modal.prototype.backdrop,
   };
@@ -549,12 +671,7 @@
 
 	  e.preventDefault();
 
-	  $target
-	      .lafayetteDssModal(option, this)
-	      .one('hide', function() {
-
-		      $this.is(':visible') && $this.focus();
-		  });
+	  $target.lafayetteDssModal(option, this);
       });
 
 }(window.jQuery);
