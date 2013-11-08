@@ -57,3 +57,8 @@ div#contact.shown {
     z-index: 1050;
     display: none;
 }
+
+.modal-contact-body {
+
+    max-height: none;
+}

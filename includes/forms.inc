@@ -25,6 +25,8 @@ function bootstrap_dss_islandora_dev_form_alter(&$form, $form_state, $form_id) {
 
   case 'islandora_solr_simple_search_form':
 
+    $form['simple']['#attributes']['id'] = 'islandora-simple-search-wrapper';
+
     // Increase the size of the text box
     $form['simple']['islandora_simple_search_query']['#size'] = 21;
     $form['simple']['islandora_simple_search_query']['#value'] = 'Search...';

@@ -263,8 +263,18 @@
       // Refactor
       //this.holdsFocus = false;
 
-      this.$element = $(element)
-      .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this));
+
+      // Set the handler 'click.dismiss.modal' for the specified element to LafayetteDssModal.hide()
+      // This needs to support more than one hide closure
+      this.$element = $(element);
+
+      // Set the handler for the dismiss event
+      this.dismissEvent = 'click.dismiss.' + this.$element.attr('id') + '.modal';
+
+      console.log('.' + this.$element.attr('id') + '-close[data-dismiss="modal"]');
+
+      //.delegate('[data-dismiss="modal"]', 'click.dismiss.modal.', $.proxy(this.hide, this));      
+      this.$element.delegate('.' + this.$element.attr('id') + '-close[data-dismiss="modal"]', this.dismissEvent, $.proxy(this.hide, this));
 
       // Work-around
       // Refactor
@@ -294,10 +304,10 @@
       show: function() {
 
 	  var that = this;
+
+	  // Possible recursion
 	  var e = $.Event('show');
-
 	  this.$element.trigger(e);
-
 	  if (this.isShown || e.isDefaultPrevented()) return;
 
 	  this.isShown = true;
@@ -334,7 +344,7 @@
 	   */
 	  that.$element.show('scale', function() {
 
-		  $._data($(this)[0], 'events');
+		  //$._data($(this)[0], 'events');
 
 		  // Ensure that the modal is hidden after 3 seconds
 		  /*
@@ -368,66 +378,6 @@
 
 			      $(document).data('LafayetteDssModal.focusedModal', null);
 
-			  //e.preventDefault();
-
-			  /*
-			  console.log('trace');
-
-			  console.log( $(e.target).parents('#' + $(this).attr('id')));
-			  console.log($(e.target).is($(this)));
-
-			  console.log($(e.target));
-			  */
-
-			      /*
-			      console.log(e);
-			      console.log($(e.target));
-			      console.log($(e.target).parents('#' + $(this).attr('id') ).length);
-			      */
-
-			      /*
-			      console.log(window.lastElementClicked);
-			      var $clickedElem = $(window.lastElementClicked);
-			      */
-
-			      /*
-			      console.log($(':focus'));
-			      console.log($(':focus').parents('#' + $(this).attr('id') ).length);
-			      */
-
-			      /*
-			      console.log($clickedElem);
-			      console.log($clickedElem.parents('#' + $(this).attr('id') ).length);
-			      */
-
-			      /*
-			      //if(!$(e.target).is($(this)) && !$(e.target).parents('#' + $(this).attr('id')).length ) {
-			      if(!$(':focus').is($(this)) && !$(e.target).parents('#' + $(this).attr('id')).length) {
-
-				  console.log('trace');
-				  //that.hide();
-
-				  // Ensure that the modal is hidden after 3 seconds
-				  setTimeout(function() {
-					  
-					  if( !$(':focus').is($(this)) && !$(e.target).parents('#' + $(this).attr('id')).length) {
-
-					      //that.hide();
-					      console.log('trace');
-					  }
-				      }, 3000);
-			      }
-			      */
-			      /*
-				} else {
-				
-				console.log($(e.target));
-				console.log($(this));
-				}
-			      */
-
-			      console.log($(document).data('LafayetteDssModal').$lastTarget);
-			      
 			      // Ensure that the modal is hidden after 3 seconds
 			      setTimeout(function() {
 
@@ -439,11 +389,11 @@
 					  if(!$(document).data('LafayetteDssModal').$lastTarget.is($(this)) &&
 					     !$(document).data('LafayetteDssModal').$lastTarget.parents('#' + focusedModal.$element.attr('id')).length ) {
 					      
-					      that.hide();
+					      //that.hide();
 					  }
 				      } else {
 
-					  that.hide();
+					  //that.hide();
 				      }
 				  }, 3000);
 			  });
@@ -455,69 +405,14 @@
 	      that.$element[0].offsetWidth; // force reflow
 	  }
 
-	  //that.$element.attr('aria-hidden', false).show('scale');
-
+	  // Introduces problems related to recursion
 	  /*
-	    that.$element
-	    .css('top', '20%')
-	    .show('scale');
-	  */
-
 	  that.enforceFocus();
-
+	  */
 	  transition ?
 	  that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
 	  that.$element.focus().trigger('shown');
 
-	  /*
-	  this.backdrop(function() {
-
-		  var transition = $.support.transition && that.$element.hasClass('fade');
-
-		  if(!that.$element.parent().length) {
-
-		      that.$element.appendTo(document.body); //don't move modals dom position
-		  }
-
-		  that.$element.show();
-
-		  if (transition) {
-
-		      that.$element[0].offsetWidth; // force reflow
-		  }
-
-		  /**
-		   * Add the non-Bootstrap transition
-		   *
-		   */
-
-		  //that.$element.hide();
-
-		  /*
-		  that.$element
-		      .addClass('in')
-		      .attr('aria-hidden', false);
-		  * /
-
-		  that.$element.attr('aria-hidden', false);
-		  that.$element.show('scale');
-
-		  //that.$element.attr('aria-hidden', false).show('scale');
-
-		  /*
-		  that.$element
-		      .css('top', '20%')
-		      .show('scale');
-		  * /
-
-		  that.enforceFocus();
-
-		  transition ?
-		      that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
-		      that.$element.focus().trigger('shown');
-	      });
-
-		  */
       },
 
       /**
@@ -531,6 +426,9 @@
 	  var that = this;
 
 	  e = $.Event('hide');
+
+	  console.log(e);
+	  console.log(this.$element);
 
 	  this.$element.trigger(e);
 
@@ -559,7 +457,11 @@
           .removeClass('in')
           .attr('aria-hidden', true);
 
-	  $.support.transition && this.$element.hasClass('fade') ? this.hideWithTransition() : this.hideModal();
+	  console.log('trace');
+
+	  //$.support.transition && this.$element.hasClass('fade') ? this.hideWithTransition() : this.hideModal();
+	  //this.hideWithTransition();
+	  this.hideModal();
       },
 
       enforceFocus: Modal.prototype.enforceFocus,
@@ -625,13 +527,12 @@
 
 	      if (!data) $this.data('bs.modal', (data = new LafayetteDssModal(this, options)));
 
-	      console.log(option);
-
 	      if (typeof option == 'string') {
 
 		  data[option](_relatedTarget);
 	      } else if (options.show) {
 
+		  // Recursion/race condition traced to here
 		  data.show(_relatedTarget);
 	      }
 	  });
