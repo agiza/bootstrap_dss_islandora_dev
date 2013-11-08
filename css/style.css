@@ -46,7 +46,7 @@ div.modal-backdrop.fade.in {
 
 div.auth-share-container.container {
 
-    width: 10%;
+    width: 11%;
     float: right;
     margin-top: 0px;
 }
@@ -55,14 +55,25 @@ div.auth-icon,
 div.share-icon {
 
     border: 2px solid;
-    width: 40px;
     height: 40px;
+    width: 40px;
+    margin: auto;
 }
 
 div.modal-container.container {
 
-    width: 48px;
     float: left;
+}
+
+.modal-container.container,
+.modal-control-container.container {
+
+    /*
+    width: 48px;
+    */
+
+    width: 64px;
+    text-align:center;
 }
 
 .dss-logo {

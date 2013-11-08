@@ -50,11 +50,11 @@
    <?php if (!empty($page['auth'])): ?>
    
      <div class="auth-icon"><span class="icon-large icon-user"></span></div>
-     <a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a>
+     <div class="auth-link"><a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a></div>
    <?php else: ?>
 
      <div class="auth-icon"><?php print $user_picture; ?></div>
-     <?php print l(t('Log Out'), 'user/logout'); ?>
+     <div class="auth-link"><?php print l(t('Log Out'), 'user/logout'); ?></div>
    <?php endif; ?>
   </div>
   </div><!-- /.auth-container -->
