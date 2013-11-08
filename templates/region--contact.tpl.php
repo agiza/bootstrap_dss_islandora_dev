@@ -9,7 +9,7 @@
 
 <?php if ($content): ?>
 
-  <div class="lafayette-dss-modal" id="contact-modal" tabindex="-1" role="dialog" aria-labelledby="Contact Interface" aria-hidden="true" data-backdrop="static">
+  <div class="lafayette-dss-modal" id="contact" tabindex="-1" role="dialog" aria-labelledby="Contact Interface" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

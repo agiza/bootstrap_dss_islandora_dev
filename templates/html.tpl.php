@@ -12,7 +12,7 @@
   <![endif]-->
   <?php print $scripts; ?>
 </head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body class="<?php print $classes; ?>" <?php print $attributes;?> data-spy="scroll" data-target="#navbar-header">
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>

@@ -71,8 +71,6 @@ function bootstrap_dss_islandora_dev_menu_tree__menu_footer_menu(&$variables) {
  */
 function bootstrap_dss_islandora_dev_menu_link__menu_footer_menu(&$variables) {
 
-  dpm($variables);
-
   $variables['element']['#attributes']['class'][] = 'footer-menu-item';
 
   if(!in_array('last', $variables['element']['#attributes']['class'])) {

@@ -16,7 +16,7 @@ div.container {
 
 div.main-container {
 
-    margin-top: 10.9%;
+    /* margin-top: 10.9%; */
     /* margin-top: 1.9%; */
 }
 
@@ -34,6 +34,11 @@ div.navbar-header h2 {
 
     margin-right: 50%;
     font-size: x-large;
+}
+
+.navbar-inner {
+
+    width: 100%
 }
 
 /* Remove the backdrop */
@@ -108,4 +113,25 @@ div.modal-container.container {
 .footer-menu-divider {
 
     margin-left: 20%;
+}
+
+.affix {
+
+    position: fixed;
+    top: 0px;
+}
+
+.affix-top {
+
+    /*
+    position: fixed;
+    */
+    /*
+    top: 22%;
+    */
+}
+
+.affix-bottom {
+
+    position: absolute;
 }

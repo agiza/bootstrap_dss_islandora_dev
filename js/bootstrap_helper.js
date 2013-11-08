@@ -21,6 +21,51 @@
 	$('#share-modal-help').popover();
 	$('#auth-modal-help').popover();
 
+	// For the header
+	//$('#navbar').affix({
+	/*
+	$('.navbar-header').affix({
+
+		offset: {
+
+		    top: 30,
+			bottom: 5
+
+		}
+	    });
+	*/
+
+	/*
+	$('#navbar-header').on('activate.bs.scrollspy', function () {
+
+		console.log('trace');
+	    });
+	*/
+
+	/*
+	$('.navbar-inner').affix({
+		
+		offset: {
+
+		    top: $('.navbar-inner').offset().top,
+		    
+			/*
+		    bottom: function() {
+
+			return $('.navbar-inner').offset().top;
+		    }
+			* /
+		}
+	    });
+	*/
+
+	$('.navbar-inner').affix({
+		
+		offset: {
+		    
+		    top: $('.navbar-inner').offset().top,
+		}
+	    });
     }
 
     // Ensure that the execution of all bootstrap functionality lies within a modular, Drupal-compliant context

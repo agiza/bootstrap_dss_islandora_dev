@@ -56,7 +56,7 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
   // The "Contact Us" link
   //$variables['contact_us'] = l('Contact Us', 'contact');
-  $variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" href="#contact-modal">' . t('Contact Us') . '</a>';
+  $variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" href="#contact">' . t('Contact Us') . '</a>';
 
   if(user_is_logged_in()) {
 

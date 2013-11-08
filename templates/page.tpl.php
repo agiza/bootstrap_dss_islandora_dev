@@ -1,4 +1,5 @@
-<header id="navbar" role="banner" class="navbar navbar-fixed-top">
+<!-- <header id="navbar" role="banner" class="navbar navbar-fixed-top"> -->
+<header id="navbar" role="banner" class="navbar">
 
   <div class="navbar-header">
 
@@ -11,11 +12,13 @@
   <div class="navbar-inner">
 
     <div class="logo-container logo pull-left">
+
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+
         <h2 class="dss-logo">DSS</h2>
       </a>
 
-    <?php print $contact_us; ?>
+      <?php print $contact_us; ?>
     </div>
 
     <div class="container">
