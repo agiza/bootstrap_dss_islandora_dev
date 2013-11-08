@@ -58,4 +58,14 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
   //$variables['contact_us'] = l('Contact Us', 'contact');
   $variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" href="#contact-modal">' . t('Contact Us') . '</a>';
 
+  if(user_is_logged_in()) {
+
+    // For the user thumbnail
+    global $user;
+    $user_view = user_view($user);
+    $variables['user_picture'] = drupal_render($user_view['user_picture']);
+  } else {
+
+    $variables['user_picture'] = '<span class="icon-large icon-user"></span>';
+  }
 }

@@ -46,20 +46,18 @@
 
   <div id="auth-control-container" class="modal-control-container container">
 
-    <div class="auth-icon"><i class="icon-large icon-user"></i></div>
-
    <!-- Work-around, decouple -->
    <?php if (!empty($page['auth'])): ?>
-
+   
+     <div class="auth-icon"><span class="icon-large icon-user"></span></div>
      <a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a>
-   <?php elseif (user_is_logged_in()): ?>
+   <?php else: ?>
 
-     <!-- Work-around, integrate with the  -->
-     <?php print l(t('Log Out'), 'user/login'); ?>
+     <div class="auth-icon"><?php print $user_picture; ?></div>
+     <?php print l(t('Log Out'), 'user/logout'); ?>
    <?php endif; ?>
   </div>
-
-	    </div><!-- /.auth-container -->
+  </div><!-- /.auth-container -->
 
 	    <div class="share-container modal-container container">
 
