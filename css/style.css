@@ -81,10 +81,31 @@ div.modal-container.container {
     border: 2px solid;
 }
 
-/* Demo for uploaded images */
-.btn {
+.breadcrumb {
 
-    /*
-     background-image: url('../files/ldr_breadcrumbs_screenshot_0.png');		
-     */
+    width: 60%;
+    float: left;
+}
+
+#copyright-container {
+
+    width: 12%;
+    float:right;
+}
+
+.nav.nav-tabs,
+.node.node-page {
+
+    clear:both;
+}
+
+.footer-menu-item {
+
+    width: 16%;
+    float: left;
+}
+
+.footer-menu-divider {
+
+    margin-left: 20%;
 }

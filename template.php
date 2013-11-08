@@ -68,4 +68,11 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
     $variables['user_picture'] = '<span class="icon-large icon-user"></span>';
   }
+
+  if(empty($variables['breadcrumb'])) {
+
+    $variables['breadcrumb'] = '<ul class="breadcrumb"><li>' . l(t('Home'), $variables['front_page']) . '</li></ul>';
+
+    }
+
 }

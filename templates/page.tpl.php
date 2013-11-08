@@ -102,7 +102,17 @@
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
-      <?php if (!empty($breadcrumb)): print $breadcrumb; endif;?>
+
+<div id="breadcrumb-container">
+      <?php if (!empty($breadcrumb)): ?>
+
+	<?php print $breadcrumb; ?>
+      <?php endif;?>
+
+      <!-- Work-around, hard-coding, refactor -->
+      <div id="copyright-container" class="breadcrumb" ><?php print l('Copyright Information', 'copyright'); ?></div>
+</div>
+
       <a id="main-content"></a>
       <?php print render($title_prefix); ?>
 

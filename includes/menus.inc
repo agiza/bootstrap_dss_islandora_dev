@@ -56,3 +56,38 @@ function bootstrap_dss_islandora_dev_menu_link__main_menu(&$variables) {
  
  return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
   }
+
+function bootstrap_dss_islandora_dev_menu_tree__menu_footer_menu(&$variables) {
+
+  //dpm($variables);
+
+  return theme_menu_tree($variables);
+}
+
+/**
+ * Implements theme_menu_link__MENU_NAME
+ *
+ * @see https://drupal.org/node/345624
+ */
+function bootstrap_dss_islandora_dev_menu_link__menu_footer_menu(&$variables) {
+
+  dpm($variables);
+
+  $variables['element']['#attributes']['class'][] = 'footer-menu-item';
+
+  if(!in_array('last', $variables['element']['#attributes']['class'])) {
+
+    $variables['element']['#below']['#markup'] = '<span class="footer-menu-divider">|</span>';
+  }
+
+  return theme_menu_link($variables);
+}
+
+/**
+ * Implements template_preprocess_menu_tree()
+ *
+ */
+function bootstrap_dss_islandora_dev_preprocess_menu_link(&$variables) {
+
+  //dpm($variables);
+}
