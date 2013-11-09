@@ -28,8 +28,14 @@ div#share-modal.shown {
 div#contact.shown {
 
     position: fixed;
-    top: 164px;
+    /* top: 164px; */
+    top: 0px;
     left: 0px;
+}
+
+div#contact.shown div.modal-dialog div.modal-content div.modal-body section#block-nodeblock-2.block div#node-2.node div.content form#webform-client-form-2.webform-client-form div div#webform-component-message.form-item div.form-textarea-wrapper textarea#edit-submitted-message.form-textarea {
+
+    height: 56px;
 }
 
 /**

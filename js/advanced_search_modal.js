@@ -339,6 +339,49 @@
 	  that.$element.attr('aria-hidden', false);
 
 	  /**
+	   * Append a handler for AJAX POST requests
+	   *
+	   */
+
+	  that.$element.find('form').submit(function(e) {
+
+		  e.preventDefault();
+
+		  $(document).data('LafayetteDssModal.lastForm', $(this));
+		  /*
+		    $(document).data('LafayetteDssModal.lastForm.Id', $(this).attr('id'));
+		  */
+
+		  if(!$(this).find('.required').filter(function(i, e) {
+
+			      console.log($(this));
+
+			      return $(this).val() == '';
+			  }).length) {
+
+			      $.post($(this).attr('action'), $(this).serialize(), function(data, textStatus) {
+
+				      that.hide();
+				  }).fail(function(data) {
+			      
+					  console.log('error');
+					  that.hide();
+				      });
+		  } else {
+
+		      $('<div class="alert alert-block alert-error"><a href="#" data-dismiss="alert" class="close">×</a><h4 class="element-invisible">Error message</h4><ul><li>Your Name field is required.</li><li>Your E-Mail Address field is required.</li><li>Subject field is required.</li><li>Message field is required.</li></ul></div>').hide().prependTo($(this).prev()).show({effect: 'scale', complete: function() {
+
+				  setTimeout(function() {
+					  
+					  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
+				      }, 1500 );
+			      }
+			  });
+
+		  }
+	      });
+
+	  /**
 	   * Integrate with jQuery UI
 	   *
 	   */

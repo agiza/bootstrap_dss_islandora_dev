@@ -44,7 +44,7 @@ stylesheets[all][] = css/modal.css
 ;**********************************
 ; 
 ; ; Scripts
-scripts[] = 'bootstrap/js/bootstrap-affix.js'
+; scripts[] = 'bootstrap/js/bootstrap-affix.js'
 ; scripts[] = 'bootstrap/js/bootstrap-alert.js'
 ; scripts[] = 'bootstrap/js/bootstrap-button.js'
 ; scripts[] = 'bootstrap/js/bootstrap-carousel.js'
