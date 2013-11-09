@@ -106,8 +106,19 @@ div.modal-container.container {
 
 .footer-menu-item {
 
-    width: 16%;
+    padding: 0px 24px;
+    /*
     float: left;
+    */
+    display:inline;
+
+    text-align: center;
+    border-right: 1px solid;
+}
+
+.footer-menu-item.last {
+
+    border-right: none;
 }
 
 .footer-menu-divider {
@@ -135,4 +146,15 @@ div.modal-container.container {
 
     position: absolute;
     top: 0px;
+}
+
+#block-menu-menu-footer-menu {
+
+    margin: auto;
+    width: 64%;
+}
+
+#block-menu-menu-footer-menu .menu {
+
+    text-align: center;
 }

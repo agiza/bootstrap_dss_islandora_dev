@@ -73,10 +73,14 @@ function bootstrap_dss_islandora_dev_menu_link__menu_footer_menu(&$variables) {
 
   $variables['element']['#attributes']['class'][] = 'footer-menu-item';
 
+  // CSS for "piping" effect
+  // HTML for semantically encoded content
+  /*
   if(!in_array('last', $variables['element']['#attributes']['class'])) {
 
     $variables['element']['#below']['#markup'] = '<span class="footer-menu-divider">|</span>';
   }
+  */
 
   return theme_menu_link($variables);
 }
