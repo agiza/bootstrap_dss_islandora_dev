@@ -38,6 +38,7 @@ regions[hidden]         = 'Hidden'
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/islandora_solr.css
 stylesheets[all][] = css/modal.css
+stylesheets[all][] = css/sharethis.css
 
 ;**********************************
 ; METHOD 1: Bootstrap Source Files

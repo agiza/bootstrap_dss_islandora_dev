@@ -92,6 +92,11 @@ div.modal-container.container {
     float: left;
 }
 
+#breadcrumb-container {
+
+    height: 36px;
+}
+
 #copyright-container {
 
     width: 12%;
@@ -158,3 +163,20 @@ div.modal-container.container {
 
     text-align: center;
 }
+
+.hybridauth-icon-hybridauth-24-lafayette {
+
+    background-image: url('../files/lafayette_shib.png');
+}
+
+.hybridauth-icon-hybridauth-32-lafayette {
+
+    background-image: url('../files/lafayette_shib_32_grayscale.png');
+}
+
+.hybridauth-widget li {
+
+    float: left;
+    clear: left;
+}
+

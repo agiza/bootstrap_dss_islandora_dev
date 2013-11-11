@@ -76,3 +76,56 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
     }
 
 }
+
+/**
+ * Implements template_preprocess_hybridauth_widget
+ * @griffinj
+ *
+ */
+function bootstrap_dss_islandora_dev_preprocess_hybridauth_widget(&$vars) {
+
+  // Refactor
+  $i = 0;
+  foreach (hybridauth_get_enabled_providers() as $provider_id => $provider_name) {
+
+    //$vars['providers'][$i] .= preg_replace('/(<\/span>)/', "</span><span>&nbsp;$provider_name</span>", $vars['providers'][$i]);
+    $vars['providers'][$i] = preg_replace('/(<\/span>)/', "</span><span>&nbsp;$provider_name</span>", $vars['providers'][$i]);
+    $i++;
+  }
+}
+
+/**
+ * Template preprocess function for hybridauth_widget.
+ */
+/*
+function template_preprocess_hybridauth_widget(&$vars, $hook) {
+
+}
+*/
+
+function bootstrap_dss_islandora_dev_theme_registry_alter(&$registry) {
+
+  dpm($registry['hybridauth_widget']);
+
+  $registry['hybridauth_widget']['file'] = 'template';
+
+  dpm($registry['hybridauth_widget']);
+}
+
+/**
+ * Implements hook_theme().
+ */
+/*
+function hybridauth_theme($existing, $type, $theme, $path) {
+  return array(
+    'hybridauth_admin_settings_providers_table' => array(
+      'render element' => 'form',
+      'file' => 'hybridauth.admin.inc',
+    ),
+    'hybridauth_widget' => array(
+      'render element' => 'element',
+      'template' => 'templates/hybridauth_widget',
+      'file' => 'hybridauth.theme.inc',
+    ),
+}
+*/

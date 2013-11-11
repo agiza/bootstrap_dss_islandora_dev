@@ -14,15 +14,33 @@ div#advanced-search-modal.shown {
 div#auth-modal.shown {
 
     position: fixed;
+
+    /*
     top: 164px;
+    */
+    top: 0px;
     right: 0px;
+
+    width: 16%;
 }
 
 div#share-modal.shown {
 
     position: fixed;
+
+    /*
     top: 164px;
+    */
+    top: 0px;
     right: 0px;
+
+    width: 16%;
+}
+
+#auth-modal-help,
+#share-modal-help {
+
+    float: right;
 }
 
 div#contact.shown {
@@ -67,4 +85,9 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
 .modal-contact-body {
 
     max-height: none;
+}
+
+.popover.bottom .arrow {
+
+    left: 86%;
 }
