@@ -3,17 +3,14 @@
    * Theming specific to the modals
    *
    */
-   
+
 div#advanced-search-modal.shown {
 
-    position: fixed;
     top: 152px;
     right: 12px;
 }
 
 div#auth-modal.shown {
-
-    position: fixed;
 
     /*
     top: 164px;
@@ -25,8 +22,6 @@ div#auth-modal.shown {
 }
 
 div#share-modal.shown {
-
-    position: fixed;
 
     /*
     top: 164px;
@@ -45,7 +40,6 @@ div#share-modal.shown {
 
 div#contact.shown {
 
-    position: fixed;
     /* top: 164px; */
     top: 0px;
     left: 0px;
@@ -80,6 +74,8 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
     width: 560px;
     z-index: 1050;
     display: none;
+
+    position: absolute;
 }
 
 .modal-contact-body {

@@ -305,6 +305,9 @@
 
 	  var that = this;
 
+	  // Adjust the z-index in order to avoid overlapping issues
+	  that.$element.css('z-index', Math.floor( new Date().getTime() / 10000 % 2 * 1000  ));
+
 	  // Possible recursion
 	  var e = $.Event('show');
 	  this.$element.trigger(e);
@@ -432,17 +435,24 @@
 					  if(!$(document).data('LafayetteDssModal').$lastTarget.is($(this)) &&
 					     !$(document).data('LafayetteDssModal').$lastTarget.parents('#' + focusedModal.$element.attr('id')).length ) {
 					      
-					      //that.hide();
+					      that.hide();
 					  }
 				      } else {
 
-					  //that.hide();
+					  that.hide();
 				      }
 				  }, 3000);
 			  });
 	      });
 
 	  that.$element.addClass('shown');
+
+	  //jQuery('.navbar-inner.affix-top').offset().top + jQuery('.navbar-inner.affix-top').height()
+	  // Ensure that the widget is always appended directly underneath the navbar
+
+	  var $navbar = $('.navbar-inner.affix-top');
+	  that.$element.css('top', $navbar.offset().top + $navbar.height());
+
 	  if(transition) {
 
 	      that.$element[0].offsetWidth; // force reflow

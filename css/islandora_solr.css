@@ -27,11 +27,15 @@ form#islandora-solr-simple-search-form div div#edit-simple.container-inline div.
 section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div {
 
     /* margin-top: 5px; */
+    display: inline;
 }
 
 input#edit-islandora-simple-search-query.form-text {
 
+    /*
     margin-top: 5px;
+    */
+    margin-top: 14px;
 }
 
 form#islandora-solr-simple-search-form div div#edit-simple.container-inline div.control-group div.controls {
@@ -63,3 +67,4 @@ div#advanced-search-modal {
 
     width: 856px;
 }
+

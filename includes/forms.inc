@@ -41,7 +41,9 @@ function bootstrap_dss_islandora_dev_form_alter(&$form, $form_state, $form_id) {
 								 'class' => array('btn', 'btn-primary', 'btn-lg'),
 								 'fragment' => 'advanced-search-modal'));
     */
-    $form['simple']['#suffix'] = '<a href="#advanced-search-modal" data-toggle="lafayette-dss-modal">Advanced Search</a>';
+    //$form['simple']['#suffix'] = '<a href="#advanced-search-modal" data-toggle="lafayette-dss-modal">Advanced Search</a>';
+
+    
     
     break;
   }
