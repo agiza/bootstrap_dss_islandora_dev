@@ -27,12 +27,18 @@ header#navbar {
 
 div.navbar-header {
 
+    /*
     text-align: center;
+    */
+    text-align: right;
 }
 
 div.navbar-header h2 {
 
+    /*
     margin-right: 50%;
+    */
+    margin-right: 10%;
     font-size: x-large;
 }
 

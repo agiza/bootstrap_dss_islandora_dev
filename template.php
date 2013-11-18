@@ -56,7 +56,7 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
   // The "Contact Us" link
   //$variables['contact_us'] = l('Contact Us', 'contact');
-  $variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" href="#contact">' . t('Contact Us') . '</a>';
+  $variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" data-target="#contact" href="#">' . t('Contact Us') . '</a>';
 
   if(user_is_logged_in()) {
 
@@ -105,11 +105,7 @@ function template_preprocess_hybridauth_widget(&$vars, $hook) {
 
 function bootstrap_dss_islandora_dev_theme_registry_alter(&$registry) {
 
-  dpm($registry['hybridauth_widget']);
-
   $registry['hybridauth_widget']['file'] = 'template';
-
-  dpm($registry['hybridauth_widget']);
 }
 
 /**

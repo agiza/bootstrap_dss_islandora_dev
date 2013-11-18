@@ -1,9 +1,12 @@
-<!-- <header id="navbar" role="banner" class="navbar navbar-fixed-top"> -->
 <header id="navbar" role="banner" class="navbar">
 
   <div class="navbar-header">
 
-   <h2><?php print empty($site_name) ? 'Digital Collections at Lafayette College' : $site_name ?></h2>
+   <!-- <h2><?php print empty($site_name) ? 'Digital Collections at Lafayette College' : $site_name ?></h2> -->
+
+   <!-- Refactor into hook_preprocess_page -->
+   <h2><?php print l('Skillman Library', 'http://library.lafayette.edu/'); ?> at <?php print l('Lafayette College', 'http://www.lafayette.edu/'); ?></h2>
+   
    <?php if(!empty($title)): ?>
     <h1><?php print $title; ?></h1>
    <?php endif; ?>
@@ -53,7 +56,7 @@
    <?php if (!empty($page['auth'])): ?>
    
      <div class="auth-icon"><span class="icon-large icon-user"></span></div>
-     <div class="auth-link"><a data-toggle="lafayette-dss-modal" href="#auth-modal">Log In</a></div>
+     <div class="auth-link"><a data-toggle="lafayette-dss-modal" data-target="#auth-modal" href="#">Log In</a></div>
    <?php else: ?>
 
      <div class="auth-icon"><?php print $user_picture; ?></div>
@@ -69,7 +72,7 @@
   <div id="share-control-container" class="modal-control-container container">
 
     <div class="share-icon"><i class="icon-large icon-share"></i></div>
-    <a data-toggle="lafayette-dss-modal" href="#share-modal">Share</a>
+    <a data-toggle="lafayette-dss-modal" data-target="#share-modal" href="#">Share</a>
   </div>
 	      <?php endif; ?>
 	    </div><!-- /.share-container -->

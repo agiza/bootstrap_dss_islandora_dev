@@ -87,3 +87,21 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
 
     left: 86%;
 }
+
+.close {
+
+    color: #0088CC;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    opacity: inherit;
+    text-shadow: inherit;
+}
+
+
+.close:hover, .close:focus {
+
+    color: #005580;
+    text-decoration: underline;
+    opacity: 1;
+}

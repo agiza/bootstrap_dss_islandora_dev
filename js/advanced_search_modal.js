@@ -450,7 +450,7 @@
 	  //jQuery('.navbar-inner.affix-top').offset().top + jQuery('.navbar-inner.affix-top').height()
 	  // Ensure that the widget is always appended directly underneath the navbar
 
-	  var $navbar = $('.navbar-inner.affix-top');
+	  var $navbar = $('.navbar-inner');
 	  that.$element.css('top', $navbar.offset().top + $navbar.height());
 
 	  if(transition) {
@@ -616,14 +616,12 @@
   // MODAL DATA-API
   // ==============
 
-  $(document).on('click.bs.modal.data-api', '[data-toggle="lafayette-dss-modal"]', function(e) {
+  $(document).on('click.bs.modal.data-api', '[data-toggle="lafayette-dss-modal"]', function(event) {
 
 	  var $this   = $(this);
 	  var href    = $this.attr('href');
 	  var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
 	  var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
-
-	  e.preventDefault();
 
 	  $target.lafayetteDssModal(option, this);
       });

@@ -430,5 +430,4 @@ function _bootstrap_dss_islandora_dev_sharethis_block_contents() {
 function bootstrap_dss_islandora_dev_block_view_sharethis_sharethis_block_alter(&$data, $block) {
 
   $data['content'] = _bootstrap_dss_islandora_dev_sharethis_block_contents();
-  dpm($data);
 }
