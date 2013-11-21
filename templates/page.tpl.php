@@ -20,8 +20,6 @@
 
         <h2 class="dss-logo">DSS</h2>
       </a>
-
-      <?php print $contact_us; ?>
     </div>
 
     <div class="container">
@@ -48,6 +46,12 @@
             <?php endif; ?>
 
 <div class="auth-share-container container">
+
+   <?php if (!empty($page['simple_search'])): ?>
+
+     <?php print render($page['simple_search']); ?>
+   <?php endif; ?>
+
 	    <div class="auth-container modal-container container">
 
   <div id="auth-control-container" class="modal-control-container container">
@@ -65,17 +69,14 @@
   </div>
   </div><!-- /.auth-container -->
 
-	    <div class="share-container modal-container container">
-
-	      <?php if (!empty($page['share'])): ?>
+  <div class="share-container modal-container container">
 
   <div id="share-control-container" class="modal-control-container container">
 
     <div class="share-icon"><i class="icon-large icon-share"></i></div>
     <a data-toggle="lafayette-dss-modal" data-target="#share-modal" href="#">Share</a>
   </div>
-	      <?php endif; ?>
-	    </div><!-- /.share-container -->
+  </div><!-- /.share-container -->
 </div>
 
           </nav>
@@ -116,6 +117,8 @@
       <?php endif;?>
 
       <!-- Work-around, hard-coding, refactor -->
+      <div id="contact-container" class="breadcrumb" ><?php print $contact_anchor; ?></div>
+
       <div id="copyright-container" class="breadcrumb" ><?php print l('Copyright Information', 'copyright'); ?></div>
 </div>
 

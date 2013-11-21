@@ -15,9 +15,13 @@ testing_api = 2.x
 ; Regions
 regions[navigation]     = 'Navigation'
 
+; For styling the Simple Search block
+regions[simple_search]	  = 'Simple Search'
+
 ; For the advanced search modeless dialog (implements the Bootstrap "modal" feature)
 ; Refactor?
 regions[search_modal]     = 'Advanced Search Modal'
+
 ; For offering Shibboleth, OAuth2...
 regions[auth]	  = 'Authentication'
 ; For sharing content over Facebook, Twitter, Google...

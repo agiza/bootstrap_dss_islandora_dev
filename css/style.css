@@ -57,7 +57,11 @@ div.modal-backdrop.fade.in {
 
 div.auth-share-container.container {
 
+    /*
     width: 11%;
+    */
+
+    width: 24%;
     float: right;
     margin-top: 0px;
 }
