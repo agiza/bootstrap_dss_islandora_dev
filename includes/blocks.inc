@@ -426,8 +426,15 @@ function _bootstrap_dss_islandora_dev_sharethis_block_contents() {
  * Implements hook_block_view_MODULE_DELTA_alter(&$data, $block).
  *
  */
-
 function bootstrap_dss_islandora_dev_block_view_sharethis_sharethis_block_alter(&$data, $block) {
 
   $data['content'] = _bootstrap_dss_islandora_dev_sharethis_block_contents();
+}
+
+function bootstrap_dss_islandora_dev_block_view_islandora_solr_simple_alter(&$data, $block) {
+
+  $data['content']['simple']['#suffix'] = l(t('Advanced Search'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+												  'data-target' => '#advanced-search-modal'),
+									    'fragment' => ' ',
+									    'external' => TRUE));
 }

@@ -55,10 +55,29 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
   }
 
   // The "Contact Us" link
-  //$variables['contact_us'] = '<a data-toggle="lafayette-dss-modal" data-target="#contact" href="#">' . t('Contact Us') . '</a>';
-  $variables['contact_anchor'] = l(t('Contact Us'), '#', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
-										     'data-target' => '#contact'
-										     )));
+  $variables['contact_anchor'] = l(t('Contact Us'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+										    'data-target' => '#contact'),
+							      'fragment' => ' ',
+							      'external' => TRUE));
+
+  // The "Log In" link
+  $variables['auth_anchor'] = l(t('Log In'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+									     'data-target' => '#auth-modal'),
+						       'fragment' => ' ',
+						       'external' => TRUE));
+
+  // The "Log Out" link
+  $variables['logout_anchor'] = l(t('Log Out'), 'user/logout');
+
+  // The "Share" link
+  $variables['share_anchor'] = l(t('Share'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+									     'data-target' => '#share-modal'),
+						       'fragment' => ' ',
+						       'external' => TRUE));
+
+  // Render thumbnails for authenticated users
+  // By default, use a glyphicon
+  $variables['user_picture'] = '<span class="icon-large icon-user"></span>';
 
   if(user_is_logged_in()) {
 
@@ -66,16 +85,13 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
     global $user;
     $user_view = user_view($user);
     $variables['user_picture'] = drupal_render($user_view['user_picture']);
-  } else {
-
-    $variables['user_picture'] = '<span class="icon-large icon-user"></span>';
   }
 
+  // Ensure that "home" always exists for the breadcrumbs
   if(empty($variables['breadcrumb'])) {
 
     $variables['breadcrumb'] = '<ul class="breadcrumb"><li>' . l(t('Home'), $variables['front_page']) . '</li></ul>';
-
-    }
+  }
 
 }
 
