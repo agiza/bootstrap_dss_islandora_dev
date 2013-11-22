@@ -17,6 +17,17 @@ function bootstrap_dss_islandora_dev_form_alter(&$form, $form_state, $form_id) {
 
   switch($form_id) {
 
+  case 'islandora_dss_solr_advanced_search_form':
+
+    foreach($form['terms'] as $key => &$term) {
+
+      if(is_numeric($key)) {
+
+	$term['field-wrapper']['search']['#size'] = 40;
+      }
+    }
+    break;
+
   case 'islandora_solr_advanced_search_form':
 
     // Push/append a theming callback on to the array of theming callbacks for the individual form element
@@ -60,6 +71,8 @@ function bootstrap_dss_islandora_dev_preprocess_bootstrap_dss_islandora_dev_isla
 
   //foreach($form['terms'] as $key => &$value) {
   foreach($variables['form']['terms'] as $key => &$value) {
+
+    dpm($variables);
 
     if(is_numeric($key)) {
 

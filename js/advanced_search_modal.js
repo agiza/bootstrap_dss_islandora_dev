@@ -376,7 +376,7 @@
 
 				  setTimeout(function() {
 					  
-					  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
+					  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
 				      }, 1500 );
 			      }
 			  });

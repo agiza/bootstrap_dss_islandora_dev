@@ -21,7 +21,7 @@
           <?php print render($content); ?>
         </div>
 
-	<button id="auth-modal-help" class="btn btn-default" data-content="Authentication help message." data-placement="bottom" data-toggle="popover" data-container="body" type="button" data-original-title="" title=""><i class="icon-question-sign"></i></button>
+	<button id="auth-modal-help" class="btn btn-default" data-content="Authentication help message." data-placement="bottom" data-toggle="popover" data-container="body" type="button" data-original-title="" title=""><i class="icon-question-sign" title="Click for more information"></i></button>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
