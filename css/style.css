@@ -44,7 +44,9 @@ div.navbar-header h2 {
 
 .navbar-inner {
 
-    width: 100%
+    /*
+      width: 100%
+      */
 }
 
 /* Remove the backdrop */
@@ -145,6 +147,7 @@ div.modal-container.container {
 
     position: fixed;
     top: 0px;
+    width: 97%;
 }
 
 .affix-top {
@@ -261,4 +264,26 @@ section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form
 #contact-container {
 
     width: inherit;
+}
+
+body {
+
+    padding-top: inherit;
+}
+
+.navbar-header {
+
+    background-image: url('../files/digital5-header.jpg');
+    padding: 6px;
+    color: #ffffff;
+}
+
+.navbar-header h2 {
+
+    margin-top: inherit;
+}
+
+.navbar-header h1 {
+
+    margin-bottom: inherit;
 }

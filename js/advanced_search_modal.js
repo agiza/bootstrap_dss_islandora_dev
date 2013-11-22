@@ -377,6 +377,7 @@
 				  setTimeout(function() {
 					  
 					  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
+					  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('slide', 'up');
 				      }, 1500 );
 			      }
 			  });
@@ -552,7 +553,8 @@
 
 	  var that = this;
 
-	  this.$element.hide('scale');
+	  //this.$element.hide('scale');
+	  this.$element.hide('slide');
 
 	  this.backdrop(function () {
 
