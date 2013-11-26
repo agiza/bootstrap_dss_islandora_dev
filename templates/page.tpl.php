@@ -18,7 +18,7 @@
 
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
 
-        <h2 class="dss-logo">DSS</h2>
+        <?php print $dss_logo_image; ?>
       </a>
     </div>
 

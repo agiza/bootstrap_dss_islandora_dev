@@ -5,8 +5,9 @@
 
 .navbar .logo {
 
-    margin-top: 0.1%;
+    margin-top: 0.7%;
     margin-left: 5%;
+    margin-right: 1%;
 }
 
 div.container {
@@ -286,4 +287,100 @@ body {
 .navbar-header h1 {
 
     margin-bottom: inherit;
+}
+
+
+
+/* Added by Thom */
+
+
+/* float search text box left of search button and set search text box margin */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline div.control-group {
+	
+	float:left;
+	margin-bottom:0px;
+}
+
+/* search button styling */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline button#edit-submit.btn {
+	
+	margin-top:14px; 
+	height:28px; 
+	width:32px;
+	margin-right:10px;	
+}
+
+/* set height of search text box to same height as search button */
+
+input#edit-islandora-simple-search-query.form-text {
+	
+	height: 28px;
+}
+
+/* set background gradient of navbar and ensure no navbar border */
+
+.navbar-inner {
+	background-image: linear-gradient(to bottom, #545454, #333333);
+	border: none;
+	border-radius: 0px;
+}
+
+/* add margin to right of search button */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
+	
+	margin-left:25px;
+}
+
+/* add slight margin between text links and bottom of navbar */ 
+
+section#block-islandora-solr-simple {
+	
+	margin-bottom: 5px;
+}
+
+/* get rid of margin on top of navbar */
+
+div.container {
+	
+	margin-top: 0px;
+}
+
+/* add margin above log in and share icons */
+
+div.modal-container.container {
+	
+	margin-top: 11px;
+}
+
+/* configure placement of DSS logo */
+
+.navbar .logo {
+	
+	margin-left: 35px;
+	margin-right: 2%;
+	margin-top: 2px;
+}
+
+/* set margin between search bar/button and advanced link */
+
+input#edit-islandora-simple-search-query.form-text {
+	
+	margin-bottom: 1px;
+}
+
+/* set right margin of Skillman and LC links in banner */
+
+html.js body.html header#navbar.navbar div.navbar-header h2{
+	
+	margin-right:10px;	
+}
+
+/* set right margin of site name in banner */
+
+html.js body.html header#navbar.navbar div.navbar-header h1{
+	
+	margin-right:10px;
 }
