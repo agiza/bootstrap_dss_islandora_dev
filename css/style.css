@@ -247,7 +247,10 @@ section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form
 
     /* margin-top: 5px; */
     /* display: inline; */
+
+    /*
     display: block;
+    */
 }
 
 #main-content {
@@ -289,7 +292,17 @@ body {
     margin-bottom: inherit;
 }
 
+/**
+ * The <div> container for the simple search block button
+ * This overrides a rule set for...
+ * .container-inline div, .container-inline label
+ * ...in the bootstrap theme
+*/
 
+.islandora-simple-search-button-container {
+
+    display: inline !important;
+}
 
 /* Added by Thom */
 
@@ -307,8 +320,9 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline button#edit-submit.btn {
 	
 	margin-top:14px; 
-	height:28px; 
-	width:32px;
+	height:28px;
+	/* Disabled by James */
+	/* width:32px; */
 	margin-right:10px;	
 }
 
