@@ -93,6 +93,11 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
     $variables['breadcrumb'] = '<ul class="breadcrumb"><li>' . l(t('Home'), $variables['front_page']) . '</li></ul>';
   }
 
+  // Work-around for the logo image
+  $variables['dss_logo_image'] = theme_image(array('path' => drupal_get_path('theme', 'bootstrap_dss_islandora_dev') . '/files/dss_logo.png',
+						   'alt' => t('digital scholarship services logo'),
+						   'attributes' => array()));
+
 }
 
 /**
