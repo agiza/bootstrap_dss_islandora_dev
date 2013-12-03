@@ -18,7 +18,10 @@ div#auth-modal.shown {
     top: 0px;
     right: 0px;
 
-    width: 16%;
+    /*
+      width: 16%;
+      */
+    width: 262px;
 }
 
 div#share-modal.shown {
@@ -29,7 +32,10 @@ div#share-modal.shown {
     top: 0px;
     right: 0px;
 
+    /*
     width: 16%;
+    */
+    width: 262px;
 }
 
 #auth-modal-help,
