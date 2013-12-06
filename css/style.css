@@ -443,3 +443,36 @@ html.js body.html div.search-modal div#advanced-search-modal.lafayette-dss-modal
 	
 	margin-bottom:8px;
 }
+
+/* add margin above menu buttons */ 
+
+.navbar .nav {
+	
+	margin-top:5px;
+}
+
+/* style all buttons */
+
+.navbar .btn, .navbar .btn-group {
+	
+	border-radius: 0;
+}
+
+/* reset padding around links within menu button */
+
+.navbar .nav > li > a {
+
+    padding-left: 0px;
+    padding-right: 0px;
+    text-shadow:none;
+    color:#545454;
+}
+
+/* style menu buttons */
+
+.navbar .nav > li {
+	
+	width: 100px;
+	background:#C4C4C4;
+	border-color:#545454;
+}
