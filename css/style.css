@@ -64,7 +64,7 @@ div.auth-share-container.container {
     width: 11%;
     */
 
-    width: 24%;
+    width: 32%;
     float: right;
     margin-top: 0px;
 }
@@ -323,14 +323,22 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	height:28px;
 	/* Disabled by James */
 	/* width:32px; */
-	margin-right:10px;	
+	margin-right:10px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
 }
 
-/* set height of search text box to same height as search button */
+/* set height of search text box to same height as search button and style its border*/
 
 input#edit-islandora-simple-search-query.form-text {
 	
 	height: 28px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+	border-top-left-radius:8px;
+	border-bottom-left-radius:8px;
 }
 
 /* set background gradient of navbar and ensure no navbar border */
@@ -341,18 +349,11 @@ input#edit-islandora-simple-search-query.form-text {
 	border-radius: 0px;
 }
 
-/* add margin to right of search button */
+/* add margin to left of advanced link */
 
 html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
 	
-	margin-left:25px;
-}
-
-/* add slight margin between text links and bottom of navbar */ 
-
-section#block-islandora-solr-simple {
-	
-	margin-bottom: 5px;
+	margin-left:48px;
 }
 
 /* get rid of margin on top of navbar */
@@ -362,27 +363,28 @@ div.container {
 	margin-top: 0px;
 }
 
-/* add margin above log in and share icons */
+/* add margin above and below log in and share icons */
 
 div.modal-container.container {
 	
-	margin-top: 11px;
+	margin-top: 5px;
+	margin-bottom: 3px;
 }
 
 /* configure placement of DSS logo */
 
 .navbar .logo {
 	
-	margin-left: 35px;
+	margin-left: 2.25%;
 	margin-right: 2%;
-	margin-top: 2px;
+	margin-top: 3px;
 }
 
 /* set margin between search bar/button and advanced link */
 
 input#edit-islandora-simple-search-query.form-text {
 	
-	margin-bottom: 1px;
+	margin-bottom: 4px;
 }
 
 /* set right margin of Skillman and LC links in banner */
@@ -397,4 +399,44 @@ html.js body.html header#navbar.navbar div.navbar-header h2{
 html.js body.html header#navbar.navbar div.navbar-header h1{
 	
 	margin-right:10px;
+}
+
+/* resize DSS logo */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.logo-container a img{
+	
+	height:65px;
+}
+
+/* set color of hyperlinks */
+
+a {
+	
+	color: #1A98DB;
+}
+
+/* adjust margin above search elements */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline{
+	
+	margin-top:3px;
+}
+
+/* set width of div around search, log in, and share */
+
+div.auth-share-container.container {
+	
+	width: 368px;
+}
+
+/* get rid of margin below search fields in advanced search window */
+
+.control-group {
+	
+	margin-bottom: 0px;
+}
+
+html.js body.html div.search-modal div#advanced-search-modal.lafayette-dss-modal div.modal-dialog div.modal-content div.modal-body section#block-islandora-solr-dss-advanced.block form#islandora-dss-solr-advanced-search-form div div#islandora-solr-advanced-terms div.islandora-solr-advanced-term div.islandora-solr-advanced-boolean div#edit-terms-0-boolean.form-radios div.form-type-radio{
+	
+	margin-bottom:8px;
 }

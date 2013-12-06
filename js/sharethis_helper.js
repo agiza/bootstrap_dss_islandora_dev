@@ -15,11 +15,14 @@
 
 		serviceName = $(e).attr('displaytext')[0].toUpperCase() + $(e).attr('displaytext').slice(1);
 
-		$(e).append( $('<span class="sharethis-anchor-wrapper"><a>' + serviceName + '</a></span>')
-			     .click(function() {
+		if() {
+
+		    $(e).append( $('<span class="sharethis-anchor-wrapper"><a class="sharethis-anchor">' + serviceName + '</a></span>')
+				 .click(function() {
 				     
-				     $(this).next('.stButton').click();
-				 }));
+					 $(this).next('.stButton').click();
+				     }));
+		}
 	    });
     }
 

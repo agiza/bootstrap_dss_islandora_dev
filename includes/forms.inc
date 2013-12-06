@@ -77,7 +77,7 @@ function bootstrap_dss_islandora_dev_preprocess_bootstrap_dss_islandora_dev_isla
   //foreach($form['terms'] as $key => &$value) {
   foreach($variables['form']['terms'] as $key => &$value) {
 
-    dpm($variables);
+    dpm('trace1');
 
     if(is_numeric($key)) {
 
@@ -91,6 +91,4 @@ function bootstrap_dss_islandora_dev_preprocess_bootstrap_dss_islandora_dev_isla
 	*/
     }
   }
-
-  dpm($variables);
 }

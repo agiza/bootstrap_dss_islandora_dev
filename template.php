@@ -112,8 +112,11 @@ function bootstrap_dss_islandora_dev_preprocess_hybridauth_widget(&$vars) {
   foreach (hybridauth_get_enabled_providers() as $provider_id => $provider_name) {
 
     //$vars['providers'][$i] .= preg_replace('/(<\/span>)/', "</span><span>&nbsp;$provider_name</span>", $vars['providers'][$i]);
+    //if(preg_match('/<span class="sharethis-anchor-wrapper"><\/span>/', $vars['providers'][$i])) {
+
     $vars['providers'][$i] = preg_replace('/(<\/span>)/', "</span><span>&nbsp;$provider_name</span>", $vars['providers'][$i]);
     $i++;
+      //}
   }
 }
 
