@@ -271,14 +271,11 @@
       // Set the handler for the dismiss event
       this.dismissEvent = 'click.dismiss.' + this.$element.attr('id') + '.modal';
 
-      console.log('.' + this.$element.attr('id') + '-close[data-dismiss="modal"]');
-
       //.delegate('[data-dismiss="modal"]', 'click.dismiss.modal.', $.proxy(this.hide, this));      
       this.$element.delegate('.' + this.$element.attr('id') + '-close[data-dismiss="modal"]', this.dismissEvent, $.proxy(this.hide, this));
 
       // Work-around
       // Refactor
-
       $(document).mousedown(function(e) {
 
 	      $(document).data('LafayetteDssModal', {$lastTarget: $(e.target)});
@@ -301,9 +298,10 @@
        * @see Modal.show()
        *
        */
-      show: function() {
+      show: function(target) {
 
 	  var that = this;
+	  var $target = $(target);
 
 	  // Adjust the z-index in order to avoid overlapping issues
 	  that.$element.css('z-index', Math.floor( new Date().getTime() / 10000 % 2 * 1000  ));
@@ -436,11 +434,11 @@
 					  if(!$(document).data('LafayetteDssModal').$lastTarget.is($(this)) &&
 					     !$(document).data('LafayetteDssModal').$lastTarget.parents('#' + focusedModal.$element.attr('id')).length ) {
 					      
-					      that.hide();
+					      //that.hide();
 					  }
 				      } else {
 
-					  that.hide();
+					  //that.hide();
 				      }
 				  }, 3000);
 			  });
@@ -452,7 +450,13 @@
 	  // Ensure that the widget is always appended directly underneath the navbar
 
 	  var $navbar = $('.navbar-inner');
-	  that.$element.css('top', $navbar.offset().top + $navbar.height());
+	  //that.$element.css('top', $navbar.offset().top + $navbar.height());
+	  //that.$element.css('left', $target.offset().left - 262 + $target.width());
+
+	  that.$element.css('top', $target.offset().top - $target[0].offsetWidth / 4);
+	  that.$element.css('left', $target.offset().left - 262 + $target.width() + $target[0].offsetWidth / 4);
+
+	  //$(document).data('LafayetteDssModal').$lastTarget.offset().top
 
 	  if(transition) {
 
@@ -587,7 +591,6 @@
 		  data[option](_relatedTarget);
 	      } else if (options.show) {
 
-		  // Recursion/race condition traced to here
 		  data.show(_relatedTarget);
 	      }
 	  });
