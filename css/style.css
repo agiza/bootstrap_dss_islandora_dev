@@ -377,7 +377,8 @@ div.modal-container.container {
 	
 	margin-left: 2.25%;
 	margin-right: 2%;
-	margin-top: 3px;
+	margin-top: 4px;
+	margin-bottom: 2px;
 }
 
 /* set margin between search bar/button and advanced link */
@@ -435,6 +436,8 @@ div.auth-share-container.container {
 	
 	margin-bottom: 0px;
 }
+
+/* set margin below Boolean operators in advanced search window */ 
 
 html.js body.html div.search-modal div#advanced-search-modal.lafayette-dss-modal div.modal-dialog div.modal-content div.modal-body section#block-islandora-solr-dss-advanced.block form#islandora-dss-solr-advanced-search-form div div#islandora-solr-advanced-terms div.islandora-solr-advanced-term div.islandora-solr-advanced-boolean div#edit-terms-0-boolean.form-radios div.form-type-radio{
 	
