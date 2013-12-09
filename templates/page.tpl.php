@@ -45,37 +45,43 @@
               <?php print render($page['navigation']); ?>
             <?php endif; ?>
 
-  <div class="auth-share-container container">
+   <div class="auth-share-simple-search-container container">
 
    <?php if (!empty($page['simple_search'])): ?>
 
      <?php print render($page['simple_search']); ?>
    <?php endif; ?>
 
-  <div class="auth-container modal-container container">
-    <div id="auth-control-container" class="modal-control-container container">
+   <div class="auth-share-container container">
 
-      <?php if (!empty($page['auth'])): ?>
+     <div class="auth-container modal-container container">
+       <div id="auth-control-container" class="modal-control-container container">
+
+        <?php if (!empty($page['auth'])): ?>
    
-	<div class="auth-icon"><span class="icon-large icon-user"></span></div>
-	<div class="auth-link"><?php print $auth_anchor; ?></div>
-      <?php else: ?>
+	  <div class="auth-icon"><span class="icon-large icon-user"></span></div>
+	  <div class="auth-link"><?php print $auth_anchor; ?></div>
+        <?php else: ?>
 
-        <!-- By default $user_picture is <span class="icon-large icon-user"></span> -->
-        <div class="auth-icon"><?php print $user_picture; ?></div>
-        <div class="auth-link"><?php print $logout_anchor; ?></div>
-      <?php endif; ?>
-  </div><!-- /#auth-control-container -->
-  </div><!-- /.auth-container -->
+          <!-- By default $user_picture is <span class="icon-large icon-user"></span> -->
+          <div class="auth-icon"><?php print $user_picture; ?></div>
+          <div class="auth-link"><?php print $logout_anchor; ?></div>
+        <?php endif; ?>
+       </div><!-- /#auth-control-container -->
+     </div><!-- /.auth-container -->
 
-  <div class="share-container modal-container container">
+     <div class="share-container modal-container container">
 
-  <div id="share-control-container" class="modal-control-container container">
+       <div id="share-control-container" class="modal-control-container container">
 
-    <div class="share-icon"><i class="icon-large icon-share"></i></div>
-    <?php print $share_anchor; ?>
-  </div><!-- /#share-control-container -->
-  </div><!-- /.share-container -->
+         <div class="share-icon"><i class="icon-large icon-share"></i></div>
+         <?php print $share_anchor; ?>
+       </div><!-- /#share-control-container -->
+     </div><!-- /.share-container -->
+
+  </div><!-- /.auth-share-container -->
+  </div>
+
 </div>
 
           </nav>
