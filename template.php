@@ -118,6 +118,16 @@ function bootstrap_dss_islandora_dev_preprocess_hybridauth_widget(&$vars) {
 }
 
 /**
+ * Implements template_preprocess_html
+ *
+ */
+function bootstrap_dss_islandora_dev_preprocess_html(&$variables) {
+
+  drupal_add_library('system', 'effects.drop');
+  drupal_add_library('system', 'effects.slide');
+}
+
+/**
  * Template preprocess function for hybridauth_widget.
  */
 /*

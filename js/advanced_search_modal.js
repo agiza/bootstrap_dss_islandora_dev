@@ -257,7 +257,7 @@
    */
   var LafayetteDssModal = function(element, options) {
 
-      this.options = options;
+      this.options = $.extend({width: 262}, options);
 
       // Work-around
       // Refactor
@@ -282,6 +282,8 @@
 	  });
 
       if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote);
+
+      this.shownWidth = this.options.width;
   };
 
   /**
@@ -298,10 +300,13 @@
        * @see Modal.show()
        *
        */
-      show: function(target) {
+      show: function(target, options) {
 
 	  var that = this;
 	  var $target = $(target);
+
+	  // Refactor for default jQuery UI options
+	  var options = $.extend(options, { direction: 'up' });
 
 	  // Adjust the z-index in order to avoid overlapping issues
 	  that.$element.css('z-index', Math.floor( new Date().getTime() / 10000 % 2 * 1000  ));
@@ -355,8 +360,6 @@
 
 		  if(!$(this).find('.required').filter(function(i, e) {
 
-			      console.log($(this));
-
 			      return $(this).val() == '';
 			  }).length) {
 
@@ -370,15 +373,18 @@
 				      });
 		  } else {
 
-		      $('<div class="alert alert-block alert-error"><a href="#" data-dismiss="alert" class="close">×</a><h4 class="element-invisible">Error message</h4><ul><li>Your Name field is required.</li><li>Your E-Mail Address field is required.</li><li>Subject field is required.</li><li>Message field is required.</li></ul></div>').hide().prependTo($(this).prev()).show({effect: 'scale', complete: function() {
+		      $('<div class="alert alert-block alert-error"><a href="#" data-dismiss="alert" class="close">×</a><h4 class="element-invisible">Error message</h4><ul><li>Your Name field is required.</li><li>Your E-Mail Address field is required.</li><li>Subject field is required.</li><li>Message field is required.</li></ul></div>').hide().prependTo($(this).prev())
+			  //.show($.extend(options, {effect: 'slide', complete: function() {
+			  .show($.extend('drop', options, function() {
 
-				  setTimeout(function() {
+					  setTimeout(function() {
 					  
-					  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
-					  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('slide', 'up');
-				      }, 1500 );
-			      }
-			  });
+						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
+						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('slide', { direction: 'up' });
+						  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('drop', { direction: 'up' });
+					      }, 1500 );
+					  //}}));
+				  }));
 
 		  }
 	      });
@@ -387,7 +393,21 @@
 	   * Integrate with jQuery UI
 	   *
 	   */
-	  that.$element.show('scale', function() {
+
+	  //that.$element.show('scale', function() {
+	  //that.$element.show('slide', function() {
+
+	  that.$element.addClass('shown');
+	  var $navbar = $('.navbar-inner');
+	  that.$element.css('top', $target.offset().top - $target[0].offsetWidth / 4);
+	  that.$element.css('left', $target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4);
+
+	  //transition ?
+	  //that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
+	  that.$element.focus().trigger('shown');
+
+	  //that.$element.show('drop', {direction: 'up'}, 500, function() {
+	  that.$element.show({effect: 'slide', direction: 'down', easing: 'easeInExpo', duration: 500, complete: function() {
 
 		  //$._data($(this)[0], 'events');
 
@@ -442,7 +462,8 @@
 				      }
 				  }, 3000);
 			  });
-	      });
+		  //});
+		  }});
 
 	  that.$element.addClass('shown');
 
@@ -467,10 +488,13 @@
 	  /*
 	  that.enforceFocus();
 	  */
+	  /*
 	  transition ?
 	  that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
 	  that.$element.focus().trigger('shown');
+	  */
 
+	      
       },
 
       /**
@@ -484,9 +508,6 @@
 	  var that = this;
 
 	  e = $.Event('hide');
-
-	  console.log(e);
-	  console.log(this.$element);
 
 	  this.$element.trigger(e);
 
@@ -514,8 +535,6 @@
 	  this.$element
           .removeClass('in')
           .attr('aria-hidden', true);
-
-	  console.log('trace');
 
 	  //$.support.transition && this.$element.hasClass('fade') ? this.hideWithTransition() : this.hideModal();
 	  //this.hideWithTransition();
@@ -553,12 +572,18 @@
        * @see Modal.hideModal()
        *
        */
-      hideModal: function() {
+      hideModal: function(options) {
 
 	  var that = this;
 
+	  // Refactor for passing jQuery UI options as arguments
+	  var options = $.extend(options, { direction: 'up' });
+
 	  //this.$element.hide('scale');
-	  this.$element.hide('slide');
+	  //this.$element.hide('slide', options);
+	  //this.$element.hide($.extend(options, {effect: 'slide'}));
+	  //this.$element.hide($.extend(options, {effect: 'slide'}));
+	  this.$element.hide('drop', options);
 
 	  this.backdrop(function () {
 
@@ -604,7 +629,8 @@
 
       backdrop: true,
       keyboard: true,
-      show: true
+      show: true,
+      width: 262
   };
 
   $.fn.lafayetteDssModal.Constructor = LafayetteDssModal;
@@ -627,6 +653,13 @@
 	  var href    = $this.attr('href');
 	  var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
 	  var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
+
+	  var width = $this.attr('data-width');
+	  // Refactor
+	  if(width) {
+
+	      options = $.extend(options, {'width': width });
+	  }
 
 	  $target.lafayetteDssModal(option, this);
       });
