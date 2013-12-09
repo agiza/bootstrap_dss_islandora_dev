@@ -246,11 +246,16 @@ form#islandora-solr-simple-search-form div div#edit-simple.container-inline butt
 section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div {
 
     /* margin-top: 5px; */
-    /* display: inline; */
+    display: inline;
 
     /*
     display: block;
     */
+}
+
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
+
+    display: block;
 }
 
 #main-content {
@@ -301,7 +306,7 @@ body {
 
 .islandora-simple-search-button-container {
 
-    display: inline !important;
+    /* display: inline !important; */
 }
 
 /* Added by Thom */
@@ -309,7 +314,7 @@ body {
 
 /* float search text box left of search button and set search text box margin */
 
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline div.control-group {
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline div.control-group {
 	
 	float:left;
 	margin-bottom:0px;
@@ -317,9 +322,9 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 
 /* search button styling */
 
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline button#edit-submit.btn {
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline div.islandora-simple-search-button-container button#edit-submit.btn {
 	
-	margin-top:14px; 
+	margin-top:14px;
 	height:28px;
 	/* Disabled by James */
 	/* width:32px; */
@@ -350,8 +355,7 @@ input#edit-islandora-simple-search-query.form-text {
 }
 
 /* add margin to left of advanced link */
-
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
 	
 	margin-left:48px;
 }
@@ -418,7 +422,7 @@ a {
 
 /* adjust margin above search elements */
 
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline{
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline {
 	
 	margin-top:3px;
 }
