@@ -63,7 +63,8 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
   // The "Log In" link
   $variables['auth_anchor'] = l(t('Log In'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
-									     'data-target' => '#auth-modal'),
+									     'data-target' => '#auth-modal',
+									     'data-height-offset' => '2px'),
 						       'fragment' => ' ',
 						       'external' => TRUE));
 
@@ -72,7 +73,9 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
   // The "Share" link
   $variables['share_anchor'] = l(t('Share'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
-									     'data-target' => '#share-modal'),
+									     'data-target' => '#share-modal',
+									     'data-height-offset' => '2px'
+									     ),
 						       'fragment' => ' ',
 						       'external' => TRUE));
 
