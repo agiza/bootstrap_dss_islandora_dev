@@ -433,8 +433,13 @@ function bootstrap_dss_islandora_dev_block_view_sharethis_sharethis_block_alter(
 
 function bootstrap_dss_islandora_dev_block_view_islandora_solr_simple_alter(&$data, $block) {
 
+  // Magic constant of 13 for width
+  // Must refactor this
   $data['content']['simple']['#suffix'] = l(t('Advanced Search'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
-												  'data-target' => '#advanced-search-modal'),
+												  'data-target' => '#advanced-search-modal',
+												  'data-width' => '560px',
+												  'data-width-offset' => '-15px',
+												  'data-height-offset' => '16px'),
 									    'fragment' => ' ',
 									    'external' => TRUE));
 }

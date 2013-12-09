@@ -257,7 +257,10 @@
    */
   var LafayetteDssModal = function(element, options) {
 
-      this.options = $.extend({width: 262}, options);
+      this.options = $.extend({width: 262,
+			       widthOffset: 0,
+			       heightOffset: 0
+	  }, options);
 
       // Work-around
       // Refactor
@@ -283,7 +286,10 @@
 
       if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote);
 
-      this.shownWidth = this.options.width;
+      // Refactor
+      this.shownWidth = parseInt(this.options.width);
+      this.widthOffset = parseInt(this.options.widthOffset);
+      this.heightOffset = parseInt(this.options.heightOffset);
   };
 
   /**
@@ -399,8 +405,8 @@
 
 	  that.$element.addClass('shown');
 	  var $navbar = $('.navbar-inner');
-	  that.$element.css('top', $target.offset().top - $target[0].offsetWidth / 4);
-	  that.$element.css('left', $target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4);
+	  that.$element.css('top', ($target.offset().top - $target[0].offsetWidth / 4) + that.heightOffset);
+	  that.$element.css('left', ($target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4) + that.widthOffset);
 
 	  //transition ?
 	  //that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
@@ -474,8 +480,8 @@
 	  //that.$element.css('top', $navbar.offset().top + $navbar.height());
 	  //that.$element.css('left', $target.offset().left - 262 + $target.width());
 
-	  that.$element.css('top', $target.offset().top - $target[0].offsetWidth / 4);
-	  that.$element.css('left', $target.offset().left - 262 + $target.width() + $target[0].offsetWidth / 4);
+	  //that.$element.css('top', $target.offset().top - $target[0].offsetWidth / 4);
+	  //that.$element.css('left', $target.offset().left - 262 + $target.width() + $target[0].offsetWidth / 4);
 
 	  //$(document).data('LafayetteDssModal').$lastTarget.offset().top
 
@@ -655,11 +661,16 @@
 	  var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
 
 	  var width = $this.attr('data-width');
+	  var widthOffset = $this.attr('data-width-offset');
+	  var heightOffset = $this.attr('data-height-offset');
 	  // Refactor
-	  if(width) {
+	  //if(width) {
 
-	      options = $.extend(options, {'width': width });
-	  }
+	      option = $.extend(option, { 'width': width,
+					  'width-offset': widthOffset,
+					  'height-offset': heightOffset
+		  });
+	      //}
 
 	  $target.lafayetteDssModal(option, this);
       });
