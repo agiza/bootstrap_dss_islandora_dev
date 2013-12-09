@@ -58,14 +58,23 @@ div.modal-backdrop.fade.in {
     z-index: -10000;
 }
 
+.auth-share-simple-search-container {
+
+    float: right;
+    width: 380px;
+}
+
 div.auth-share-container.container {
 
     /*
     width: 11%;
     */
 
+    /*
     width: 32%;
     float: right;
+    */
+    width: 380px;
     margin-top: 0px;
 }
 
@@ -430,8 +439,11 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 /* set width of div around search, log in, and share */
 
 div.auth-share-container.container {
-	
-	width: 368px;
+
+    /**
+     * Disabled by James
+     */
+    /* width: 368px; */
 }
 
 /* get rid of margin below search fields in advanced search window */
