@@ -15,7 +15,7 @@
 
 		serviceName = $(e).attr('displaytext')[0].toUpperCase() + $(e).attr('displaytext').slice(1);
 
-		if() {
+		if( $(e).children('.sharethis-anchor-wrapper').length == 0) {
 
 		    $(e).append( $('<span class="sharethis-anchor-wrapper"><a class="sharethis-anchor">' + serviceName + '</a></span>')
 				 .click(function() {
