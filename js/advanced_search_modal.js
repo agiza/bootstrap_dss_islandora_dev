@@ -290,6 +290,7 @@
       this.shownWidth = parseInt(this.options.width);
       this.widthOffset = parseInt(this.options.widthOffset);
       this.heightOffset = parseInt(this.options.heightOffset);
+      this.anchorAlign = this.options.anchorAlign;
   };
 
   /**
@@ -405,8 +406,20 @@
 
 	  that.$element.addClass('shown');
 	  var $navbar = $('.navbar-inner');
-	  that.$element.css('top', ($target.offset().top - $target[0].offsetWidth / 4) + that.heightOffset);
-	  that.$element.css('left', ($target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4) + that.widthOffset);
+
+	  if(that.anchorAlign) {
+
+	      that.$element.css('top', ($target.offset().top - $target[0].offsetWidth / 4) + that.heightOffset);
+	      that.$element.css('left', ($target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4) + that.widthOffset);
+	  } else {
+
+	      // Ensure that the widget is always appended directly underneath the navbar
+
+	      var $navbar = $('.navbar-inner');
+	      that.$element.css('top', $navbar.offset().top + $navbar.height());
+	      //that.$element.css('left', $target.offset().left - 262 + $target.width());
+	      that.$element.css('left', 0);
+	  }
 
 	  //transition ?
 	  //that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
@@ -636,7 +649,8 @@
       backdrop: true,
       keyboard: true,
       show: true,
-      width: 262
+      width: 262,
+      anchorAlign: true
   };
 
   $.fn.lafayetteDssModal.Constructor = LafayetteDssModal;
@@ -660,17 +674,22 @@
 	  var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); //strip for ie7
 	  var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
 
+	  // Refactor
 	  var width = $this.attr('data-width');
 	  var widthOffset = $this.attr('data-width-offset');
 	  var heightOffset = $this.attr('data-height-offset');
-	  // Refactor
-	  //if(width) {
 
-	      option = $.extend(option, { 'width': width,
-					  'width-offset': widthOffset,
-					  'height-offset': heightOffset
-		  });
-	      //}
+	  var anchorAlign = true;
+	  if( $this.attr('data-anchor-align')) {
+
+	      anchorAlign = $this.attr('data-anchor-align').toLowerCase() == 'true';
+	  }
+
+	  option = $.extend(option, { 'width': width,
+				      'width-offset': widthOffset,
+				      'height-offset': heightOffset,
+				      'anchorAlign': anchorAlign,
+	      });
 
 	  $target.lafayetteDssModal(option, this);
       });
