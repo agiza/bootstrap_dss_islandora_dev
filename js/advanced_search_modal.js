@@ -409,15 +409,19 @@
 
 	  if(that.anchorAlign) {
 
+	      /*
 	      that.$element.css('top', ($target.offset().top - $target[0].offsetWidth / 4) + that.heightOffset);
 	      that.$element.css('left', ($target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4) + that.widthOffset);
+	      */
+
+	      that.$element.css('top', Math.floor( ($target.offset().top - $target[0].offsetWidth / 4) + that.heightOffset));
+	      that.$element.css('left', Math.floor( ($target.offset().left - that.shownWidth + $target.width() + $target[0].offsetWidth / 4) + that.widthOffset));
 	  } else {
 
 	      // Ensure that the widget is always appended directly underneath the navbar
 
 	      var $navbar = $('.navbar-inner');
 	      that.$element.css('top', $navbar.offset().top + $navbar.height());
-	      //that.$element.css('left', $target.offset().left - 262 + $target.width());
 	      that.$element.css('left', 0);
 	  }
 
