@@ -380,14 +380,14 @@
 		  } else {
 
 		      $('<div class="alert alert-block alert-error"><a href="#" data-dismiss="alert" class="close">×</a><h4 class="element-invisible">Error message</h4><ul><li>Your Name field is required.</li><li>Your E-Mail Address field is required.</li><li>Subject field is required.</li><li>Message field is required.</li></ul></div>').hide().prependTo($(this).prev())
-			  //.show($.extend(options, {effect: 'slide', complete: function() {
-			  .show($.extend('drop', options, function() {
+			  .show($.extend('slide', { direction: 'down' }, function() {
+			  //.show($.extend('drop', options, function() {
 
 					  setTimeout(function() {
 					  
 						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
-						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('slide', { direction: 'up' });
-						  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('drop', { direction: 'up' });
+						  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('slide', { direction: 'up' });
+						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('drop', { direction: 'up' });
 					      }, 1500 );
 					  //}}));
 				  }));
@@ -586,10 +586,10 @@
 	  var options = $.extend(options, { direction: 'up' });
 
 	  //this.$element.hide('scale');
-	  //this.$element.hide('slide', options);
+	  this.$element.hide('slide', options);
 	  //this.$element.hide($.extend(options, {effect: 'slide'}));
 	  //this.$element.hide($.extend(options, {effect: 'slide'}));
-	  this.$element.hide('drop', options);
+	  //this.$element.hide('drop', options);
 
 	  this.backdrop(function () {
 

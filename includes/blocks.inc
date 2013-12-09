@@ -438,8 +438,9 @@ function bootstrap_dss_islandora_dev_block_view_islandora_solr_simple_alter(&$da
   $data['content']['simple']['#suffix'] = l(t('Advanced Search'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
 												  'data-target' => '#advanced-search-modal',
 												  'data-width' => '560px',
-												  'data-width-offset' => '-15px',
-												  'data-height-offset' => '16px'),
+												  'data-width-offset' => '-194px',
+												  'data-height-offset' => '40px'
+												  ),
 									    'fragment' => ' ',
 									    'external' => TRUE));
 }
