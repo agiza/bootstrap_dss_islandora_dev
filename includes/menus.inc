@@ -21,6 +21,7 @@ function bootstrap_dss_islandora_dev_menu_link__main_menu(&$variables) {
       // Add our own wrapper
       unset($element['#below']['#theme_wrappers']);
       $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
       $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
 
@@ -28,6 +29,7 @@ function bootstrap_dss_islandora_dev_menu_link__main_menu(&$variables) {
       if ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] > 1)) {
         // Generate as dropdown submenu
         $element['#attributes']['class'][] = 'dropdown-submenu';
+	//unset($element['#localized_options']['attributes']['data-toggle']);
       }
       else {
         // Generate as standard dropdown

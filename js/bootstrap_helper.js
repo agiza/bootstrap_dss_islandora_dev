@@ -14,7 +14,6 @@
 	$('.navbar-toggle').click(function() {
 
 		$('.collapse').collapse('toggle');
-		
 	    });
 
 	// For the popovers
@@ -65,6 +64,12 @@
 		    
 		    top: $('.navbar-inner').offset().top,
 		}
+	    });
+
+
+	$('.dropdown-submenu').on('show.bs.dropdown', function(e) {
+		
+		e.preventDefault();
 	    });
     }
 
