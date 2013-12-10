@@ -66,11 +66,37 @@
 		}
 	    });
 
+	//$('.dropdown-submenu').dropdown('toggle').click(function(e) {
+	/*
+	$('.dropdown-menu li .dropdown-menu').dropdown('toggle').click(function(e) {
 
-	$('.dropdown-submenu').on('show.bs.dropdown', function(e) {
-		
 		e.preventDefault();
+		$(this).dropdown();
 	    });
+	*/
+
+	/*
+	$('.dropdown-menu li .dropdown-menu').each(function(i, e) {
+
+		console.log( $(e));
+		$(e).addClass('dropdown-submenu');
+
+		$(e).dropdown('toggle').parent().click(function(e) {
+
+			e.preventDefault();
+			$(this).dropdown();
+		    });
+	    });
+	*/
+
+	//$('.dropdown-submenu').dropdown('toggle');
+	/*
+	$('.dropdown-submenu').on('show.bs.dropdown', function(e) {
+
+		console.log('trace');
+	    });
+	*/
+
     }
 
     // Ensure that the execution of all bootstrap functionality lies within a modular, Drupal-compliant context

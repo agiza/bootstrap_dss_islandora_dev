@@ -27,9 +27,10 @@ function bootstrap_dss_islandora_dev_menu_link__main_menu(&$variables) {
 
       // Check if this element is nested within another
       if ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] > 1)) {
+
         // Generate as dropdown submenu
         $element['#attributes']['class'][] = 'dropdown-submenu';
-	//unset($element['#localized_options']['attributes']['data-toggle']);
+	unset($element['#localized_options']['attributes']['data-toggle']);
       }
       else {
         // Generate as standard dropdown
