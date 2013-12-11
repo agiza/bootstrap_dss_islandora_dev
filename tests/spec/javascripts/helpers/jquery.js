@@ -1,1 +1,0 @@
-jquery/src/jquery.js

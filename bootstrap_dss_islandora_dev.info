@@ -8,6 +8,7 @@ files[] = tests/bootstrap_dss_islandora_dev.test
 
 scripts[] = 'js/bootstrap_helper.js'
 scripts[] = 'js/advanced_search_modal.js'
+scripts[] = 'js/widget.js'
 
 ; This must be specified for unit testing!
 testing_api = 2.x

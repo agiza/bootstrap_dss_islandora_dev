@@ -5,28 +5,35 @@
 
 describe("Example Drupal widget", function() {
 
-    var drupal;
-
-    beforeEach(function() {
-
-	drupal = new Object();
-    });
-
-    it("should bind to the DOM", function() {
-
-	expect(true).toBeTruthy();
-    });
-
-    describe("when some DOM state is captured by a jQuery Object", function() {
-
 	beforeEach(function() {
 
-	    $('<div id="element"></div>').appendTo($('body'));
-	});
+		targetElement = $('body');
+		date = new Date(0);
+		widget = new Widget($, 'My Widget', { height: '246px', targetElement: targetElement, date: date });
+	    });
+	
+	it("should have a name", function() {
 
-	it("should indicate that t(he song is currently paused", function() {
+		expect(widget.name).toEqual('My Widget');
+	    });
+	
+	it("should have options", function() {
 
-	    expect($('div#element').length).toEqual(1);
-	});
+		expect(widget.options.height).toEqual('246px');
+		expect(widget.options.width).toEqual('640px');
+	    });
+
+	it("should have a target element", function() {
+
+		expect(widget.options.targetElement).toBe(targetElement);
+	    });
+
+	it("should have for a date option a unique object instance", function() {
+
+		// Here, one verifies that this is the same value...
+		expect(widget.options.date).toEqual(new Date(0));
+
+		// ...and that this is a unique object:
+		expect(widget.options.date).not.toBe(new Date(0));
+	    });
     });
-});

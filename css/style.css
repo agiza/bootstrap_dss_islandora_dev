@@ -457,5 +457,54 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 
 html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container{
 	
-	width:365px;
+    width:365px;
+    margin-bottom:8px;
 }
+
+
+/* add margin above menu buttons and ensure no margin below */ 
+
+.navbar .nav {
+	
+	margin-bottom:0px;
+	margin-top:18px;
+}
+
+/* style all buttons */
+
+.navbar .btn, .navbar .btn-group {
+	
+	border-radius: 0px;
+}
+
+/* reset padding around and style font of links within menu button */
+
+.navbar .nav > li > a {
+
+    padding-left: 0px;
+    padding-right: 0px;
+    text-shadow:none;
+    color:#DDDDDD;
+}
+
+/* style menu buttons */
+
+.navbar .nav > li {
+	
+	width: 100px;
+	border-color:#DDDDDD;
+	border-bottom:none;
+	border-top:none;
+	border-right:none;
+	background:none;
+	border-width: 1px;
+	box-shadow:none;
+}
+
+.navbar .nav > li.last {
+	
+	border-right:solid;
+	border-color:#DDDDDD;
+	border-width:1px;
+}
+
