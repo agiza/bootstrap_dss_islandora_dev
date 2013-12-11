@@ -451,23 +451,19 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	margin-top:0px;
 }
 
-
-
 /* adjust width of area containing search, log-in, and share */
 
 html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container{
 	
     width:365px;
-    margin-bottom:8px;
 }
-
 
 /* add margin above menu buttons and ensure no margin below */ 
 
 .navbar .nav {
 	
 	margin-bottom:0px;
-	margin-top:18px;
+	margin-top:5px;
 }
 
 /* style all buttons */
@@ -501,10 +497,11 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	box-shadow:none;
 }
 
+/* set right border of last menu button */
+
 .navbar .nav > li.last {
 	
 	border-right:solid;
 	border-color:#DDDDDD;
 	border-width:1px;
 }
-
