@@ -89,12 +89,20 @@ div.share-icon {
 
 .auth-icon {
 
+<<<<<<< HEAD
     background-image: url('../files/UserIcon.svg');
+=======
+    /* background-image: url('../files/UserIcon.svg'); */
+>>>>>>> e4a9a7102f80ac55dc9b70fb71c5a2cc73b17ad2
 }
 
 .share-icon {
 
+<<<<<<< HEAD
     background-image: url('../files/ShareIcon.svg');
+=======
+    /* background-image: url('../files/ShareIcon.svg'); */
+>>>>>>> e4a9a7102f80ac55dc9b70fb71c5a2cc73b17ad2
 }
 
 div.modal-container.container {
@@ -516,3 +524,26 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	border-width:1px;
 }
 
+
+/* set width of menu button anchors to width of li container */
+
+.navbar .nav > li > a {
+	
+	background-color:red;
+	padding-top:10px;
+	padding-bottom:10px;
+} 
+
+/* hover style for menu buttons */
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+	
+	background-color:#DDDDDD;
+	color:#545454;
+} 
+
+.navbar .nav > li.btn{
+	
+	padding:0px;
+	width:124px;
+}
