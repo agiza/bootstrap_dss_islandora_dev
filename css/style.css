@@ -350,19 +350,6 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	margin-bottom:0px;
 }
 
-/* search button styling */
-
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline div.islandora-simple-search-button-container button#edit-submit.btn {
-	
-	margin-top:14px;
-	height:28px;
-	margin-right:10px;
-	border-top-right-radius:8px;
-	border-bottom-right-radius:8px;
-	border-top-left-radius:0px;
-	border-bottom-left-radius:0px;
-}
-
 /* set height of search text box to same height as search button and style its border*/
 
 input#edit-islandora-simple-search-query.form-text {
@@ -380,12 +367,6 @@ input#edit-islandora-simple-search-query.form-text {
 	background-image: linear-gradient(to bottom, #545454, #333333);
 	border: none;
 	border-radius: 0px;
-}
-
-/* add margin to left of advanced link */
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
-	
-	margin-left:48px;
 }
 
 /* get rid of margin on top of navbar */
@@ -434,8 +415,8 @@ html.js body.html div.search-modal div#advanced-search-modal.lafayette-dss-modal
 
 div.modal-container.container {
 	
-	margin-top: 2px;
-	margin-bottom: 1px;
+	margin-top: 4px;
+	margin-bottom: 2px;
 }
 
 /* configure placement of DSS logo */
@@ -448,40 +429,11 @@ div.modal-container.container {
 	margin-bottom: 0px;
 }
 
-/* set margin between search bar/button and advanced link */
-
-input#edit-islandora-simple-search-query.form-text {
-	
-	margin-bottom: 4px;
-}
-
-/* resize DSS logo */
-
-html.js body.html header#navbar.navbar div.navbar-inner div.logo-container a img{
-	
-	height:62px;
-}
-
-/* adjust margin above search elements */
-
-html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block {
-	
-	margin-top:0px;
-}
-
 /* adjust width of area containing search, log-in, and share */
 
 html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container{
 	
     width:365px;
-}
-
-/* add margin above menu buttons and ensure no margin below */ 
-
-.navbar .nav {
-	
-	margin-bottom:0px;
-	margin-top:5px;
 }
 
 /* style all buttons */
@@ -524,12 +476,10 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	border-width:1px;
 }
 
-
-/* set width of menu button anchors to width of li container */
+/* set padding to create appropriate height on menu buttons */
 
 .navbar .nav > li > a {
 	
-	background-color:red;
 	padding-top:10px;
 	padding-bottom:10px;
 } 
@@ -542,8 +492,80 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 	color:#545454;
 } 
 
+/* remove padding on menu buttons, set their width */
+
 .navbar .nav > li.btn{
 	
 	padding:0px;
 	width:124px;
+}
+
+/* style and set size of divs around login and share icons */
+
+div.auth-icon, div.share-icon {
+    border: none;
+    height: 32px;
+    margin: auto;
+    width: 32px;
+}
+
+/* set size of login and share icons */
+
+div.auth-icon > object, div.share-icon > object {
+	
+	height:30px;
+}
+
+/* set margin above search text entry box */
+
+input#edit-islandora-simple-search-query.form-text {
+	
+	margin-top: 7px;
+}
+
+/* set margin between search bar/button and advanced link */
+
+input#edit-islandora-simple-search-query.form-text {
+	
+	margin-bottom: 1px;
+}
+
+/* resize DSS logo */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.logo-container a img{
+	
+	height:53px;
+}
+
+/* search button styling */
+
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div div#islandora-simple-search-wrapper.container-inline div.islandora-simple-search-button-container button#edit-submit.btn {
+	
+	margin-top:7px;
+	height:28px;
+	margin-right:10px;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	border-top-left-radius:0px;
+	border-bottom-left-radius:0px;
+}
+
+/* add margin to left of advanced link */
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a {
+	
+	margin-left:49px;
+}
+
+/* adjust margin above menu buttons */
+
+.navbar .btn, .navbar .btn-group {
+	
+	margin-top: 7px;
+}
+
+/* reset margin below menu buttons */ 
+
+.navbar .nav {
+	
+	margin-bottom:7px;
 }
