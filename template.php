@@ -81,7 +81,7 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
   // Render thumbnails for authenticated users
   // By default, use a glyphicon
-  $variables['user_picture'] = '<span class="icon-large icon-user"></span>';
+  $variables['user_picture'] = '<span class="button-auth-icon"></span>';
 
   if(user_is_logged_in()) {
 
