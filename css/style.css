@@ -87,6 +87,16 @@ div.share-icon {
     margin: auto;
 }
 
+.auth-icon {
+
+    background-image: url('../files/UserIcon.svg');
+}
+
+.share-icon {
+
+    background-image: url('../files/ShareIcon.svg');
+}
+
 div.modal-container.container {
 
     float: left;

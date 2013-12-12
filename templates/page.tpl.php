@@ -59,11 +59,10 @@
 
         <?php if (!empty($page['auth'])): ?>
    
-	  <div class="auth-icon"><span class="icon-large icon-user"></span></div>
+	  <div class="auth-icon"><span class="button-auth-icon"></span></div>
 	  <div class="auth-link"><?php print $auth_anchor; ?></div>
         <?php else: ?>
 
-          <!-- By default $user_picture is <span class="icon-large icon-user"></span> -->
           <div class="auth-icon"><?php print $user_picture; ?></div>
           <div class="auth-link"><?php print $logout_anchor; ?></div>
         <?php endif; ?>
@@ -74,7 +73,7 @@
 
        <div id="share-control-container" class="modal-control-container container">
 
-         <div class="share-icon"><i class="icon-large icon-share"></i></div>
+         <div class="share-icon"><span class="button-auth-icon"></span></div>
          <?php print $share_anchor; ?>
        </div><!-- /#share-control-container -->
      </div><!-- /.share-container -->
