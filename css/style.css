@@ -89,12 +89,12 @@ div.share-icon {
 
 .auth-icon {
 
-    background-image: url('../files/UserIcon.svg');
+    /* background-image: url('../files/UserIcon.svg'); */
 }
 
 .share-icon {
 
-    background-image: url('../files/ShareIcon.svg');
+    /* background-image: url('../files/ShareIcon.svg'); */
 }
 
 div.modal-container.container {
