@@ -309,7 +309,8 @@ body {
 
 .navbar-header {
 
-    background-image: url('../files/digital5-header.jpg');
+    /* background-image: url('../files/digital5-header.jpg'); */
+    background-image: url('../files/digitalBannerBackground.jpg');
     padding: 6px;
     color: #ffffff;
 }
@@ -506,6 +507,25 @@ div.auth-icon, div.share-icon {
     border: none;
     height: 32px;
     margin: auto;
+}
+
+/**
+ * @author griffinj
+ * For "Log In" <div> width issue
+ *
+ */
+div.auth-icon {
+
+    width: 40px;
+}
+
+div.auth-icon img {
+
+    width: 32px;
+}
+
+div.share-icon {
+
     width: 32px;
 }
 
@@ -568,4 +588,53 @@ html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-co
 .navbar .nav {
 	
 	margin-bottom:7px;
+}
+
+/* set color of hyperlinks in banner and navbar */
+
+html.js body.html header#navbar.navbar div.navbar-header h2 a {
+	
+	color:#EEEEEE;
+}
+html.js body.html header#navbar.navbar div.navbar-header h1 a{
+	
+	color:#EEEEEE;
+}
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.auth-share-container div.auth-container div#auth-control-container.modal-control-container a{
+	
+	color:#DDDDDD;
+}
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.auth-share-container div.share-container div#share-control-container.modal-control-container a{
+	
+	color:#DDDDDD;
+}
+html.js body.html header#navbar.navbar div.navbar-inner div.container div.nav-collapse nav div.auth-share-simple-search-container div.region section#block-islandora-solr-simple.block form#islandora-solr-simple-search-form div a{
+	
+	color:#DDDDDD;
+}
+
+/* set height, background size, and font color of banner */
+
+.navbar-header {
+	
+	background-size: auto 100%;
+	height: 130px;
+	color:#EEEEEE;
+}
+
+/* resize DSS link font and top margin in banner */
+
+html.js body.html header#navbar.navbar div.navbar-header h1 {
+	
+	font-size:52px;
+	margin-top:0px;
+}
+
+/* resize Skillman and LC links font and bottom and top margins in banner */
+
+html.js body.html header#navbar.navbar div.navbar-header h2 {
+	
+	font-size:25px;
+	margin-bottom:0px;
+	margin-top:38px;
 }

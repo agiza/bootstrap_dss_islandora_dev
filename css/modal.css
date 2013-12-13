@@ -4,6 +4,13 @@
    *
    */
 
+#islandora-solr-simple-search-form div a,
+#auth-control-container > a,
+#share-control-container > a {
+
+    cursor: pointer;
+}
+
 .modal-body {
 
     padding: 15px 4px 4px;

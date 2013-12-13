@@ -2,13 +2,11 @@
 
   <div class="navbar-header">
 
-   <!-- <h2><?php print empty($site_name) ? 'Digital Collections at Lafayette College' : $site_name ?></h2> -->
-
    <!-- Refactor into hook_preprocess_page -->
    <h2><?php print l('Skillman Library', 'http://library.lafayette.edu/'); ?> at <?php print l('Lafayette College', 'http://www.lafayette.edu/'); ?></h2>
    
    <?php if(!empty($title)): ?>
-    <h1><?php print $title; ?></h1>
+     <h1><?php print l($title, $front_page); ?></h1>
    <?php endif; ?>
   </div>
 

@@ -281,7 +281,7 @@
       // Refactor
       $(document).mousedown(function(e) {
 
-	      $(document).data('LafayetteDssModal', {$lastTarget: $(e.target)});
+	      $(document).data('LafayetteDssModal', {$lastTarget: $(e.target), $element: this.$element});
 	  });
 
       if (this.options) this.options.remote && this.$element.find('.modal-body').load(this.options.remote);
@@ -485,6 +485,27 @@
 				      }
 				  }, 3000);
 			  });
+
+		  /**
+		   * For handling when scrolling while a modal is open
+		   *
+		   */
+		  $(window).scroll(function() {
+
+			  $('.lafayette-dss-modal.shown').each(function(i,e) {
+
+				  $(e).css('top', $(e).offset().top + $(window).scrollTop());
+			      });
+
+			  /*
+			  var activeElement = $(document).data('LafayetteDssModal').$element;
+
+			  if(activeElement) {
+
+			     activeElement.css('top', activeElement.css('top') + $(window).scrollTop());
+			  }
+			  */
+		      });
 		  //});
 		  }});
 
