@@ -62,22 +62,32 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 							      'external' => TRUE));
 
   // The "Log In" link
-  $variables['auth_anchor'] = l(t('Log In'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
-									     'data-target' => '#auth-modal',
-									     'data-height-offset' => '2px'),
-						       'fragment' => ' ',
-						       'external' => TRUE));
+  //$variables['auth_anchor'] = l(t('Log In'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+  $variables['auth_anchor'] = l('<div class="auth-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.png" /><span>Log In</span></div>', '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+														    'data-target' => '#auth-modal',
+																								  'data-width-offset' => '10px',
+														    'data-height-offset' => '28px'),
+											      'fragment' => ' ',
+											      //'external' => TRUE));
+											      'external' => TRUE,
+											      'html' => TRUE
+											      ));
 
   // The "Log Out" link
   $variables['logout_anchor'] = l(t('Log Out'), 'user/logout');
 
   // The "Share" link
-  $variables['share_anchor'] = l(t('Share'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+  //$variables['share_anchor'] = l(t('Share'), '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
+  $variables['share_anchor'] = l('<div class="share-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/ShareIcon.png" /><span>Share</span></div>', '', array('attributes' => array('data-toggle' => 'lafayette-dss-modal',
 									     'data-target' => '#share-modal',
-									     'data-height-offset' => '2px'
+																								    'data-width-offset' => '10px',
+									     'data-height-offset' => '28px'
 									     ),
 						       'fragment' => ' ',
-						       'external' => TRUE));
+						       //'external' => TRUE));
+						       'external' => TRUE,
+						       'html' => TRUE
+						       ));
 
   // Render thumbnails for authenticated users
   // By default, use a glyphicon

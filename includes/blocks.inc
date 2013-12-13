@@ -439,8 +439,9 @@ function bootstrap_dss_islandora_dev_block_view_islandora_solr_simple_alter(&$da
 												  'data-target' => '#advanced-search-modal',
 												  'data-width' => '560px',
 												  //'data-width-offset' => '-194px',
-												  'data-width-offset' => '-118px',
-												  'data-height-offset' => '48px',
+												  'data-width-offset' => '-116px',
+												  //'data-height-offset' => '48px',
+												  'data-height-offset' => '38px',
 												  ),
 									    'fragment' => ' ',
 									    'external' => TRUE));

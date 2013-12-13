@@ -430,7 +430,7 @@
 	  that.$element.focus().trigger('shown');
 
 	  //that.$element.show('drop', {direction: 'up'}, 500, function() {
-	  that.$element.show({effect: 'slide', direction: 'down', easing: 'easeInExpo', duration: 500, complete: function() {
+	  that.$element.show({effect: 'slide', direction: 'up', duration: 500, complete: function() {
 
 		  //$._data($(this)[0], 'events');
 

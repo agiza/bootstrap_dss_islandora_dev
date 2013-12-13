@@ -59,8 +59,8 @@
 
         <?php if (!empty($page['auth'])): ?>
    
-	  <div class="auth-icon"><object data="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.svg" type="image/svg+xml"></object></div>
-	  <div class="auth-link"><?php print $auth_anchor; ?></div>
+	  <!-- <div class="auth-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.png" /></div> -->
+	  <?php print $auth_anchor; ?>
         <?php else: ?>
 
           <div class="auth-icon"><?php print $user_picture; ?></div>
@@ -73,7 +73,7 @@
 
        <div id="share-control-container" class="modal-control-container container">
 
-         <div class="share-icon"><object data="/sites/all/themes/bootstrap_dss_islandora_dev/files/ShareIcon.svg" type="image/svg+xml"></object></div>
+         <!-- <div class="share-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/ShareIcon.png" /></div> -->
          <?php print $share_anchor; ?>
        </div><!-- /#share-control-container -->
      </div><!-- /.share-container -->
