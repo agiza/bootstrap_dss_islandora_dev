@@ -638,3 +638,12 @@ html.js body.html header#navbar.navbar div.navbar-header h2 {
 	margin-bottom:0px;
 	margin-top:38px;
 }
+
+/* set background image and its styling for LC logo in login menu */
+
+.hybridauth-icon-hybridauth-32-lafayette {
+	
+	background-image: url("../files/lafayette_seal.png");
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
