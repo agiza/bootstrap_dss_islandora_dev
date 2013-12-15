@@ -273,7 +273,7 @@
       // Set the handler for the dismiss event
       this.dismissEvent = 'click.dismiss.' + this.$element.attr('id') + '.modal';
 
-      //.delegate('[data-dismiss="modal"]', 'click.dismiss.modal.', $.proxy(this.hide, this));      
+      //.delegate('[data-dismiss="modal"]', 'click.dismiss.modal.', $.proxy(this.hide, this));
       this.$element.delegate('.' + this.$element.attr('id') + '-close[data-dismiss="modal"]', this.dismissEvent, $.proxy(this.hide, this));
 
       // Work-around
@@ -300,7 +300,7 @@
 
       constructor: LafayetteDssModal,
       toggle: Modal.prototype.toggle,
-      
+
       /**
        * Overriding the show method
        * @see Modal.show()
@@ -323,7 +323,7 @@
 	  if (this.isShown || e.isDefaultPrevented()) return;
 
 	  this.isShown = true;
-	  
+
 	  this.escape();
 
 	  var transition = $.support.transition && that.$element.hasClass('fade');
@@ -373,7 +373,7 @@
 
 				      that.hide();
 				  }).fail(function(data) {
-			      
+
 					  console.log('error');
 					  that.hide();
 				      });
@@ -384,7 +384,7 @@
 			  //.show($.extend('drop', options, function() {
 
 					  setTimeout(function() {
-					  
+
 						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('scale');
 						  $(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('slide', { direction: 'up' });
 						  //$(document).data('LafayetteDssModal.lastForm').parent().find('.alert').hide('drop', { direction: 'up' });
@@ -481,7 +481,7 @@
 					  // Ensure that the last element clicked does not lie within a modal...
 					  if(!$(document).data('LafayetteDssModal').$lastTarget.is($(this)) &&
 					     !$(document).data('LafayetteDssModal').$lastTarget.parents('#' + focusedModal.$element.attr('id')).length ) {
-					      
+
 					      //that.hide();
 					  }
 				      } else {
@@ -508,7 +508,6 @@
 				  $(document).data('LafayetteDssModal.navbar.offset.top', navbarOffsetTop);
 
 				  if( $(window).scrollTop() == 0 ) {
-				  //if( $('.navbar-inner.affix').length == 0 ) {
 
 				      $(e).css('top', offsetTop );
 				  }
@@ -569,7 +568,7 @@
 	  that.$element.focus().trigger('shown');
 	  */
 
-	      
+
       },
 
       /**

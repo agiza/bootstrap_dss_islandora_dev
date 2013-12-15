@@ -20,6 +20,54 @@
 	$('#share-modal-help').popover();
 	$('#auth-modal-help').popover();
 
+	// Refactor
+	$('#auth-modal-toggle').popover({content: $('#auth-modal').html()}).on('shown.bs.popover', function() {
+
+	    var $that = $(this);
+
+	    //$('.auth-container button.close').click(function(e) {
+	    $(this).parents('.modal-container').find('.close').click(function(e) {
+
+		//$(this).popover('hide');
+		$that.popover('hide');
+	    });
+
+	    var $popover = $(this).parents('.modal-container').find('.popover');
+
+	    // Work-around
+	    $popover.css('top', parseInt($popover.css('top')) + 10);
+
+	    //$(document).data('LafayetteDssPopover.' + $(this).attr('id') + '.offset.top', $popover.offset().top);
+
+	    // Work-around
+	    $(document).data('LafayetteDssPopover.' + $(this).attr('id') + '.offset.top', $popover.offset().top - 11);
+	});
+
+	// Refactor
+	$('#share-modal-toggle').popover({content: $('#share-modal').html()}).on('shown.bs.popover', function() {
+
+	    var $that = $(this);
+
+	    //$('.auth-container button.close').click(function(e) {
+	    $(this).parents('.modal-container').find('.close').click(function(e) {
+
+		//$(this).popover('hide');
+		$that.popover('hide');
+	    });
+
+
+	    var $popover = $(this).parents('.modal-container').find('.popover');
+
+	    // Work-around
+	    $popover.css('top', parseInt($popover.css('top')) + 10);
+
+	    //$(document).data('LafayetteDssPopover.' + $(this).attr('id') + '.offset.top', $popover.offset().top);
+
+	    // Work-around
+	    $(document).data('LafayetteDssPopover.' + $(this).attr('id') + '.offset.top', $popover.offset().top - 11);
+	});
+
+
 	// For the header
 	//$('#navbar').affix({
 	/*
@@ -43,11 +91,11 @@
 
 	/*
 	$('.navbar-inner').affix({
-		
+
 		offset: {
 
 		    top: $('.navbar-inner').offset().top,
-		    
+
 			/*
 		    bottom: function() {
 
@@ -59,9 +107,9 @@
 	*/
 
 	$('.navbar-inner').affix({
-		
+
 		offset: {
-		    
+
 		    top: $('.navbar-inner').offset().top,
 		}
 	    });
@@ -96,6 +144,56 @@
 		console.log('trace');
 	    });
 	*/
+
+
+	$(document).data('LafayetteDssModal.navbar.offset.top', $('.navbar-inner').offset().top);
+
+	$(window).scroll(function() {
+
+	    $('.modal-container > div.popover').each(function(i,e) {
+
+		var toggleId = $('.modal-container > div.popover').parents('.modal-container').find('.modal-toggle').attr('id');
+		var offsetTop = $(document).data('LafayetteDssPopover.' + toggleId + '.offset.top');
+
+		var navbarOffsetTop = $('.navbar-inner').offset().top;
+		if(! $(document).data('LafayetteDssModal.navbar.offset.top') || $(window).scrollTop() == 0) {
+
+		    $(document).data('LafayetteDssModal.navbar.offset.top', navbarOffsetTop);
+
+		    if( $(window).scrollTop() == 0 ) {
+
+			$(e).css('top', offsetTop );
+		    }
+		}
+
+		if($(window).scrollTop() < navbarOffsetTop) {
+
+		    $(e).css('top', offsetTop );
+		}
+
+		var $navbar = $('.navbar-inner.affix');
+
+		if($navbar.length > 0) {
+
+		    //$(e).css('top', $(e).offset().top + $(window).scrollTop());
+		    //$(e).css('top', offsetTop - $(window).scrollTop() - $(document).data('LafayetteDssModal.navbar.offset.top') );
+		    //$(e).css('top', offsetTop - $(window).scrollTop());
+		    $(e).css('top', offsetTop - $(document).data('LafayetteDssModal.navbar.offset.top'));
+		}
+
+	    /*
+	    var $navbar = $('.navbar-inner.affix');
+
+	    if($navbar.length > 0) {
+
+		$('.modal-container > div.popover').each(function(i,e) {
+
+		    $(e).css('top', $('.auth-container > div.popover').offset().top - $(document).data('LafayetteDssModal.navbar.offset.top') );
+		}
+	    }
+	    */
+	    });
+	});
 
 	$(window).resize(function() {
 

@@ -75,6 +75,11 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
     height: 56px;
 }
 
+/**
+ * Popover
+ *
+ */
+
 #share-modal.lafayette-dss-modal div.popover div.arrow:after {
 
     left: 30px;
@@ -90,7 +95,8 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
  *
  */
 
-.lafayette-dss-modal {
+.lafayette-dss-modal,
+.lafayette-dss-popover {
 
     background-clip: padding-box;
     background-color: #FFFFFF;

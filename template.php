@@ -4,7 +4,7 @@
  * @file template.php
  * @author griffinj@lafayette.edu
  * This file contains the primary theme hooks found within any given Drupal 7.x theme
- * 
+ *
  * @todo Implement some Drupal theming hooks
  */
 
@@ -77,6 +77,10 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
 
   $variables['auth_anchor'] = '<a data-toggle="lafayette-dss-modal" data-target="#auth-modal" data-width-offset="0px" data-height-offset="30px"><div class="auth-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.png" /><span>Log In</span></div></a>';
 
+  //$variables['auth_anchor'] = '<a id="auth-modal-help" class="btn btn-default" data-content="Authentication help message." data-placement="bottom" data-toggle="popover" data-container=".share-control-container" title=""><div class="auth-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.png" /><span>Log In</span></div></a>';
+
+  $variables['auth_anchor'] = '<a id="auth-modal-toggle" class="modal-toggle" data-placement="bottom" data-toggle="popover" data-container=".auth-container" data-original-title="" data-html="true" title=""><div class="auth-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.png" /><span>Log In</span></div></a>';
+
   // The "Log Out" link
   $variables['logout_anchor'] = l(t('Log Out'), 'user/logout');
 
@@ -96,6 +100,8 @@ function bootstrap_dss_islandora_dev_preprocess_page(&$variables) {
   */
 
   $variables['share_anchor'] = '<a data-toggle="lafayette-dss-modal" data-target="#share-modal" data-width-offset="10px" data-height-offset="28px"><div class="share-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/ShareIcon.png" /><span>Share</span></div></a>';
+
+  $variables['share_anchor'] = '<a id="share-modal-toggle" class="modal-toggle" data-placement="bottom" data-toggle="popover" data-container=".share-container" data-original-title="" data-html="true" title=""><div class="share-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/ShareIcon.png" /><span>Share</span></div></a>';
 
   // Render thumbnails for authenticated users
   // By default, use a glyphicon
