@@ -4,7 +4,7 @@
 
    <!-- Refactor into hook_preprocess_page -->
    <h2><?php print l('Skillman Library', 'http://library.lafayette.edu/'); ?> at <?php print l('Lafayette College', 'http://www.lafayette.edu/'); ?></h2>
-   
+
    <?php if(!empty($title)): ?>
      <h1><?php print l($title, $front_page); ?></h1>
    <?php endif; ?>
@@ -29,7 +29,8 @@
       <?php endif; ?>
 
       <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
-        <div class="nav-collapse collapse">
+        <!-- <div class="nav-collapse collapse"> -->
+        <div class="nav-visible">
           <nav role="navigation">
             <?php if (!empty($primary_nav)): ?>
               <?php print render($primary_nav); ?>
@@ -56,7 +57,7 @@
        <div id="auth-control-container" class="modal-control-container container">
 
         <?php if (!empty($page['auth'])): ?>
-   
+
 	  <!-- <div class="auth-icon"><img src="/sites/all/themes/bootstrap_dss_islandora_dev/files/UserIcon.png" /></div> -->
 	  <?php print $auth_anchor; ?>
         <?php else: ?>
@@ -105,9 +106,9 @@
       <aside class="span3" role="complementary">
         <?php print render($page['sidebar_first']); ?>
       </aside>  <!-- /#sidebar-first -->
-    <?php endif; ?>  
+    <?php endif; ?>
 
-    <section class="<?php print _bootstrap_content_span($columns); ?>">  
+    <section class="<?php print _bootstrap_content_span($columns); ?>">
       <?php if (!empty($page['highlighted'])): ?>
         <div class="highlighted hero-unit"><?php print render($page['highlighted']); ?></div>
       <?php endif; ?>
@@ -187,4 +188,3 @@
 <footer class="footer container">
   <?php print render($page['footer']); ?>
 </footer>
-
