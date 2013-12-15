@@ -98,7 +98,8 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
 
 .modal-contact-body {
 
-    max-height: none;
+    /* max-height: none; */
+    max-height: 186px;
 }
 
 .popover.bottom.in {

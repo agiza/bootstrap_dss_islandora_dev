@@ -266,7 +266,6 @@
       // Refactor
       //this.holdsFocus = false;
 
-
       // Set the handler 'click.dismiss.modal' for the specified element to LafayetteDssModal.hide()
       // This needs to support more than one hide closure
       this.$element = $(element);
@@ -406,6 +405,7 @@
 
 	  that.$element.addClass('shown');
 	  var $navbar = $('.navbar-inner');
+	  $(document).data('LafayetteDssModal.navbar.offset.top', $navbar.offset().top);
 
 	  if(that.anchorAlign) {
 
@@ -420,7 +420,7 @@
 
 	      // Ensure that the widget is always appended directly underneath the navbar
 
-	      var $navbar = $('.navbar-inner');
+	      //var $navbar = $('.navbar-inner');
 	      that.$element.css('top', $navbar.offset().top + $navbar.height());
 	      that.$element.css('left', 0);
 	  }
@@ -443,6 +443,9 @@
 			  that.hide();
 		      }, 3000);
 		  */
+
+	          //$(document).data('LafayetteDssModal.offset.top', $(this).offset().top);
+	          $(document).data('LafayetteDssModal.' + $(this).attr('id') + '.offset.top', $(this).offset().top);
 
 		  $(this).find('input.form-text:first').focus();
 
@@ -494,8 +497,34 @@
 
 			  $('.lafayette-dss-modal.shown').each(function(i,e) {
 
-				  $(e).css('top', $(e).offset().top + $(window).scrollTop());
-			      });
+			      //var offsetTop = $(document).data('LafayetteDssModal.offset.top');
+			      var offsetTop = $(document).data('LafayetteDssModal.' + $(e).attr('id') + '.offset.top');
+
+			      var navbarOffsetTop = $('.navbar-inner').offset().top;
+			      if(! $(document).data('LafayetteDssModal.navbar.offset.top') || $(window).scrollTop() == 0) {
+
+				  $(document).data('LafayetteDssModal.navbar.offset.top', navbarOffsetTop);
+
+				  if( $(window).scrollTop() == 0 ) {
+				  //if( $('.navbar-inner.affix').length == 0 ) {
+
+				      $(e).css('top', offsetTop );
+				  }
+			      }
+
+			      if($(window).scrollTop() < navbarOffsetTop) {
+
+				  $(e).css('top', offsetTop );
+			      }
+
+			      var $navbar = $('.navbar-inner.affix');
+
+			      if($navbar.length > 0) {
+
+				  //$(e).css('top', $(e).offset().top + $(window).scrollTop());
+				  $(e).css('top', offsetTop + $(window).scrollTop() - $(document).data('LafayetteDssModal.navbar.offset.top') );
+			      }
+			  });
 
 			  /*
 			  var activeElement = $(document).data('LafayetteDssModal').$element;
