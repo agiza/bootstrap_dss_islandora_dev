@@ -75,6 +75,16 @@ div#contact.shown div.modal-dialog div.modal-content div.modal-body section#bloc
     height: 56px;
 }
 
+#share-modal.lafayette-dss-modal div.popover div.arrow:after {
+
+    left: 30px;
+}
+
+#share-modal.lafayette-dss-modal div.popover div.arrow {
+
+    border-bottom-color: transparent;
+}
+
 /**
  * Styling rules specific to the advanced search modal
  *
