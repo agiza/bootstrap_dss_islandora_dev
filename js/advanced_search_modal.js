@@ -422,7 +422,9 @@
 
 	      //var $navbar = $('.navbar-inner');
 	      that.$element.css('top', $navbar.offset().top + $navbar.height());
-	      that.$element.css('left', 0);
+	      //that.$element.css('left', 0);
+	      //that.$element.css('margin-left', '33.3%');
+
 	  }
 
 	  //transition ?
